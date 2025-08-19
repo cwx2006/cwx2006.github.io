@@ -143,7 +143,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,6 +172,158 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cxk">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+      <meta itemprop="description" content="没事写写东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="post-title-link" itemprop="url">Hyper-v命令行</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-19 19:18:57 / 修改时间：22:43:53" itemprop="dateCreated datePublished" datetime="2025-08-19T19:18:57+08:00">2025-08-19</time>
+    </span>
+
+  
+    <span id="/2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="post-meta-item leancloud_visitors" data-flag-title="Hyper-v命令行" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>   Hyper-v使用命令行是为了方便使用脚本管理。。。</p>
+<h2 id="查看本地帮助"><a href="#查看本地帮助" class="headerlink" title="查看本地帮助"></a>查看本地帮助</h2><ol>
+<li><p>选择 Windows 开始按钮，然后右键选择，点击 <strong>PowerShell</strong>。</p>
+</li>
+<li><p>可以运行以下命令以显示 Hyper-V PowerShell 模块提供的 PowerShell 命令的可搜索列表。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Command -Module hyper-v | Out-GridView</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/cwx2006/picture/main/image-20250819210822371.png"></p>
+<p>若要了解有关特定 PowerShell 命令的详细信息，请使用 <code>Get-Help</code>。 例如，运行以下命令将返回有关 <code>Get-VM</code> Hyper-V 命令的信息。</p>
+<p>需要加载一会</p>
+<p><img src="https://raw.githubusercontent.com/cwx2006/picture/main/image-20250819211730497.png" alt="image-20250819211730497"></p>
+<h2 id="查看现有的虚拟机"><a href="#查看现有的虚拟机" class="headerlink" title="查看现有的虚拟机"></a>查看现有的虚拟机</h2><p><code>Get-VM</code>使用命令返回虚拟机列表</p>
+<ol>
+<li>PowerShell 中运行以下命令：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/cwx2006/picture/main/image-20250819213333357.png" alt="image-20250819213333357"></p>
+<p>若要查看开机的虚拟机，可以使用命令添加 <code>Where-Object</code> 筛选器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | where &#123;$_.State -eq &#x27;Running&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查看关及状态的所有虚拟机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | where &#123;$_.State -eq &#x27;Off&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动和关闭虚拟机"><a href="#启动和关闭虚拟机" class="headerlink" title="启动和关闭虚拟机"></a>启动和关闭虚拟机</h2><ol>
+<li><p>若要启动一台虚拟机，请使用虚拟机的名称运行以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-VM</span> <span class="literal">-Name</span> 虚拟机名字</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若要启动当前关闭的所有虚拟机，请获取这些计算机的列表，并将列表通过管道传递给 <code>Start-VM</code> 命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-VM</span> | <span class="built_in">where</span> &#123;<span class="variable">$_</span>.State <span class="operator">-eq</span> <span class="string">&#x27;Off&#x27;</span>&#125; | <span class="built_in">Start-VM</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若需要启动以debia 开头的虚拟机：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Start-VM -Name debia*   </span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>关闭以debia 开头的虚拟机：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stop-VM debia* </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>强制关机</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stop-VM -Name &#x27;虚拟机名&#x27; –Force</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>若要关闭所有正在运行的虚拟机，请运行以下命令：</p>
+</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-VM</span> | <span class="built_in">where</span> &#123;<span class="variable">$_</span>.State <span class="operator">-eq</span> <span class="string">&#x27;Running&#x27;</span>&#125; | <span class="built_in">Stop-VM</span></span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>保存虚拟机</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Save-VM -Name &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="8">
+<li>保存以debia*开头的虚拟机<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM -Name debia* | Save-VM</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="创建虚拟机检查点（快照）"><a href="#创建虚拟机检查点（快照）" class="headerlink" title="创建虚拟机检查点（快照）"></a>创建虚拟机检查点（快照）</h2><p>若要使用 PowerShell 创建检查点，使用命令选择虚拟机 <code>Get-VM</code> ，并将其传递给 <code>Checkpoint-VM</code> 命令。 最后，使用 <code>-SnapshotName</code> 为检查点命名。 完整的命令如下所示：</p>
+<p>创建虚拟机debian的名为Update1的检查点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Checkpoint-VM -Name &#x27;debian&#x27; -SnapshotName Update1</span><br></pre></td></tr></table></figure>
+<p>查看检查点：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VMSnapshot -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
+<p>如果要删除名称以“ Update”开头的所有快照，则应运行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM &#x27;debian&#x27; | Remove-VMSnapshot -Name Update*</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建新的虚拟机"><a href="#创建新的虚拟机" class="headerlink" title="创建新的虚拟机"></a>创建新的虚拟机</h2><p>以下示例演示如何在 PowerShell 集成脚本环境（ISE）中创建新的虚拟机。 这是一个简单的示例，可以将其扩展为包括其他 PowerShell 功能和更高级的 VM 部署。</p>
+<ol>
+<li><p>若要打开 PowerShell ISE 单击“开始”，请键入 <strong>PowerShell ISE</strong>。</p>
+</li>
+<li><p>运行以下代码以创建虚拟机。 有关命令的详细信息，请参阅 <code>New-VM</code> 文档。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$VMName</span> = <span class="string">&quot;VMNAME&quot;</span></span><br><span class="line">   </span><br><span class="line"><span class="variable">$VM</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">    Name = <span class="variable">$VMName</span></span><br><span class="line">    MemoryStartupBytes = <span class="number">2147483648</span></span><br><span class="line">    Generation = <span class="number">2</span></span><br><span class="line">    NewVHDPath = <span class="string">&quot;C:\Virtual Machines\<span class="variable">$VMName</span>\<span class="variable">$VMName</span>.vhdx&quot;</span></span><br><span class="line">    NewVHDSizeBytes = <span class="number">53687091200</span></span><br><span class="line">    BootDevice = <span class="string">&quot;VHD&quot;</span></span><br><span class="line">    Path = <span class="string">&quot;C:\Virtual Machines\<span class="variable">$VMName</span>&quot;</span></span><br><span class="line">    SwitchName = (<span class="built_in">Get-VMSwitch</span>).Name</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="built_in">New-VM</span> @VM</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h2><p>首先需要启用资源计量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enable-VMResourceMetering -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
+<p>查看名为debian的虚拟机的CPU使用率，RAM使用率，磁盘容量和网络流量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Measure-VM -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
+<p>参考链接<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/powershell/module/hyper-v/?view=windowsserver2019-ps">微软官网文档</a> 可以左上角根据自己的系统调整</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
