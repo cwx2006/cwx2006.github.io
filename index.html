@@ -211,7 +211,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-08-19 19:18:57 / 修改时间：22:43:53" itemprop="dateCreated datePublished" datetime="2025-08-19T19:18:57+08:00">2025-08-19</time>
+      <time title="创建时间：2025-08-19 19:18:57 / 修改时间：23:28:58" itemprop="dateCreated datePublished" datetime="2025-08-19T19:18:57+08:00">2025-08-19</time>
     </span>
 
   
@@ -232,7 +232,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>   Hyper-v使用命令行是为了方便使用脚本管理。。。</p>
-<h2 id="查看本地帮助"><a href="#查看本地帮助" class="headerlink" title="查看本地帮助"></a>查看本地帮助</h2><ol>
+<h3 id="查看本地帮助"><a href="#查看本地帮助" class="headerlink" title="查看本地帮助"></a>查看本地帮助</h3><ol>
 <li><p>选择 Windows 开始按钮，然后右键选择，点击 <strong>PowerShell</strong>。</p>
 </li>
 <li><p>可以运行以下命令以显示 Hyper-V PowerShell 模块提供的 PowerShell 命令的可搜索列表。</p>
@@ -244,7 +244,7 @@
 <p>若要了解有关特定 PowerShell 命令的详细信息，请使用 <code>Get-Help</code>。 例如，运行以下命令将返回有关 <code>Get-VM</code> Hyper-V 命令的信息。</p>
 <p>需要加载一会</p>
 <p><img src="https://raw.githubusercontent.com/cwx2006/picture/main/image-20250819211730497.png" alt="image-20250819211730497"></p>
-<h2 id="查看现有的虚拟机"><a href="#查看现有的虚拟机" class="headerlink" title="查看现有的虚拟机"></a>查看现有的虚拟机</h2><p><code>Get-VM</code>使用命令返回虚拟机列表</p>
+<h3 id="查看现有的虚拟机"><a href="#查看现有的虚拟机" class="headerlink" title="查看现有的虚拟机"></a>查看现有的虚拟机</h3><p><code>Get-VM</code>使用命令返回虚拟机列表</p>
 <ol>
 <li>PowerShell 中运行以下命令：</li>
 </ol>
@@ -257,7 +257,7 @@
 <p>查看关及状态的所有虚拟机</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | where &#123;$_.State -eq &#x27;Off&#x27;&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="启动和关闭虚拟机"><a href="#启动和关闭虚拟机" class="headerlink" title="启动和关闭虚拟机"></a>启动和关闭虚拟机</h2><ol>
+<h3 id="启动和关闭虚拟机"><a href="#启动和关闭虚拟机" class="headerlink" title="启动和关闭虚拟机"></a>启动和关闭虚拟机</h3><ol>
 <li><p>若要启动一台虚拟机，请使用虚拟机的名称运行以下命令：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-VM</span> <span class="literal">-Name</span> 虚拟机名字</span><br></pre></td></tr></table></figure>
 </li>
@@ -287,7 +287,7 @@
 <ol start="8">
 <li>保存以debia*开头的虚拟机<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM -Name debia* | Save-VM</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="创建虚拟机检查点（快照）"><a href="#创建虚拟机检查点（快照）" class="headerlink" title="创建虚拟机检查点（快照）"></a>创建虚拟机检查点（快照）</h2><p>若要使用 PowerShell 创建检查点，使用命令选择虚拟机 <code>Get-VM</code> ，并将其传递给 <code>Checkpoint-VM</code> 命令。 最后，使用 <code>-SnapshotName</code> 为检查点命名。 完整的命令如下所示：</p>
+<h3 id="创建虚拟机检查点（快照）"><a href="#创建虚拟机检查点（快照）" class="headerlink" title="创建虚拟机检查点（快照）"></a>创建虚拟机检查点（快照）</h3><p>若要使用 PowerShell 创建检查点，使用命令选择虚拟机 <code>Get-VM</code> ，并将其传递给 <code>Checkpoint-VM</code> 命令。 最后，使用 <code>-SnapshotName</code> 为检查点命名。 完整的命令如下所示：</p>
 <p>创建虚拟机debian的名为Update1的检查点。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Checkpoint-VM -Name &#x27;debian&#x27; -SnapshotName Update1</span><br></pre></td></tr></table></figure>
 <p>查看检查点：</p>
@@ -295,18 +295,78 @@
 <p>如果要删除名称以“ Update”开头的所有快照，则应运行以下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM &#x27;debian&#x27; | Remove-VMSnapshot -Name Update*</span><br></pre></td></tr></table></figure>
 
-<h2 id="创建新的虚拟机"><a href="#创建新的虚拟机" class="headerlink" title="创建新的虚拟机"></a>创建新的虚拟机</h2><p>以下示例演示如何在 PowerShell 集成脚本环境（ISE）中创建新的虚拟机。 这是一个简单的示例，可以将其扩展为包括其他 PowerShell 功能和更高级的 VM 部署。</p>
+<h3 id="创建新的虚拟机"><a href="#创建新的虚拟机" class="headerlink" title="创建新的虚拟机"></a>创建新的虚拟机</h3><p>以下示例演示如何在 PowerShell 集成脚本环境（ISE）中创建新的虚拟机。 这是一个简单的示例，可以将其扩展为包括其他 PowerShell 功能和更高级的 VM 部署。</p>
 <ol>
 <li><p>若要打开 PowerShell ISE 单击“开始”，请键入 <strong>PowerShell ISE</strong>。</p>
 </li>
 <li><p>运行以下代码以创建虚拟机。 有关命令的详细信息，请参阅 <code>New-VM</code> 文档。</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$VMName</span> = <span class="string">&quot;VMNAME&quot;</span></span><br><span class="line">   </span><br><span class="line"><span class="variable">$VM</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">    Name = <span class="variable">$VMName</span></span><br><span class="line">    MemoryStartupBytes = <span class="number">2147483648</span></span><br><span class="line">    Generation = <span class="number">2</span></span><br><span class="line">    NewVHDPath = <span class="string">&quot;C:\Virtual Machines\<span class="variable">$VMName</span>\<span class="variable">$VMName</span>.vhdx&quot;</span></span><br><span class="line">    NewVHDSizeBytes = <span class="number">53687091200</span></span><br><span class="line">    BootDevice = <span class="string">&quot;VHD&quot;</span></span><br><span class="line">    Path = <span class="string">&quot;C:\Virtual Machines\<span class="variable">$VMName</span>&quot;</span></span><br><span class="line">    SwitchName = (<span class="built_in">Get-VMSwitch</span>).Name</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="built_in">New-VM</span> @VM</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h2><p>首先需要启用资源计量。</p>
+<h3 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h3><p>首先需要启用资源计量。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enable-VMResourceMetering -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
 <p>查看名为debian的虚拟机的CPU使用率，RAM使用率，磁盘容量和网络流量</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Measure-VM -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
-<p>参考链接<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/powershell/module/hyper-v/?view=windowsserver2019-ps">微软官网文档</a> 可以左上角根据自己的系统调整</p>
+
+<p>下方的还没有测试 </p>
+<hr>
+<h3 id="虚拟机配置管理"><a href="#虚拟机配置管理" class="headerlink" title="虚拟机配置管理"></a>虚拟机配置管理</h3><ol>
+<li><p><strong>修改虚拟机配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 修改虚拟机内存（动态内存）</span><br><span class="line">Set-VMMemory -VMName &quot;VMName&quot; -DynamicMemoryEnabled $true -MinimumBytes 512MB -MaximumBytes 4GB -StartupBytes 2GB</span><br><span class="line"></span><br><span class="line"># 修改虚拟机处理器数量</span><br><span class="line">Set-VMProcessor -VMName &quot;VMName&quot; -Count 4</span><br><span class="line"></span><br><span class="line"># 修改虚拟机启动顺序（仅适用于第2代虚拟机）</span><br><span class="line">Set-VMFirmware -VMName &quot;VMName&quot; -BootOrder @(&quot;HardDiskDrive&quot;, &quot;NetworkAdapter&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>添加或移除硬件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 添加虚拟硬盘</span><br><span class="line">Add-VMHardDiskDrive -VMName &quot;VMName&quot; -Path &quot;D:\VHDs\disk2.vhdx&quot;</span><br><span class="line"></span><br><span class="line"># 添加网络适配器</span><br><span class="line">Add-VMNetworkAdapter -VMName &quot;VMName&quot; -SwitchName &quot;External Switch&quot;</span><br><span class="line"></span><br><span class="line"># 移除硬件（例如移除第2个硬盘）</span><br><span class="line">Remove-VMHardDiskDrive -VMName &quot;VMName&quot; -ControllerLocation 1</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+<li><pre><code># 查看所有虚拟交换机
+Get-VMSwitch
+
+# 创建外部虚拟交换机
+New-VMSwitch -Name &quot;External Switch&quot; -NetAdapterName &quot;Ethernet&quot; -AllowManagementOS $true
+
+# 创建内部或专用交换机
+New-VMSwitch -Name &quot;Internal Switch&quot; -SwitchType Internal
+
+# 删除虚拟交换机
+Remove-VMSwitch -Name &quot;Internal Switch&quot; -Force
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 虚拟硬盘管理</span><br><span class="line"></span><br><span class="line">1. **创建和管理虚拟硬盘**</span><br></pre></td></tr></table></figure>
+# 创建新的动态扩展虚拟硬盘
+New-VHD -Path &quot;C:\VHDs\new_disk.vhdx&quot; -SizeBytes 50GB -Dynamic
+
+# 挂载虚拟硬盘到主机（便于修改内容）
+Mount-VHD -Path &quot;C:\VHDs\disk.vhdx&quot;
+
+# 卸载虚拟硬盘
+Dismount-VHD -Path &quot;C:\VHDs\disk.vhdx&quot;
+
+# 压缩虚拟硬盘（回收未使用空间）
+Optimize-VHD -Path &quot;C:\VHDs\disk.vhdx&quot; -Mode Full
+</code></pre>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 高级监控与性能</span><br><span class="line"></span><br><span class="line">1. **实时监控**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）"><a href="#查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）" class="headerlink" title="查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）"></a>查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）</h1><p>   Get-VM -Name “VMName” | Get-VMResourceMetering | Format-List</p>
+<h1 id="启用资源计量（如未启用）"><a href="#启用资源计量（如未启用）" class="headerlink" title="启用资源计量（如未启用）"></a>启用资源计量（如未启用）</h1><p>   Enable-VMResourceMetering -VMName “VMName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **导出性能数据**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h1 id="导出虚拟机性能数据到CSV"><a href="#导出虚拟机性能数据到CSV" class="headerlink" title="导出虚拟机性能数据到CSV"></a>导出虚拟机性能数据到CSV</h1><p>   Measure-VM -Name “VMName” | Export-Csv -Path “C:\perf.csv” -NoTypeInformation<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 导入和导出虚拟机</span><br><span class="line"></span><br><span class="line">1. **导出虚拟机**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Export-VM -Name “VMName” -Path “D:\Exports&quot;<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **导入虚拟机**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Import-VM -Path “D:\Exports\VMName\Virtual Machines\VMID.xml” -Copy -GenerateNewId<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 虚拟机复制（Replication）</span><br><span class="line"></span><br><span class="line">1. **配置复制**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h1 id="启用虚拟机复制"><a href="#启用虚拟机复制" class="headerlink" title="启用虚拟机复制"></a>启用虚拟机复制</h1><p>   Enable-VMReplication -VMName “VMName” -ReplicaServerName “ReplicaHost” -ReplicaServerPort 80 -AuthenticationType Kerberos -CompressionEnabled $true<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **启动复制**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Start-VMInitialReplication -VMName “VMName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 安全检查点（快照）管理</span><br><span class="line"></span><br><span class="line">1. **还原到检查点**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Restore-VMSnapshot -Name “SnapshotName” -VMName “VMName” -Confirm:$false<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **重命名检查点**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Rename-VMSnapshot -VMName “VMName” -Name “OldName” -NewName “NewName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 其他实用命令</span><br><span class="line"></span><br><span class="line">1. **查看Hyper-V主机信息**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Get-VMHost<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **查看虚拟机集成服务状态**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Get-VMIntegrationService -VMName “VMName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. **启用或禁用集成服务**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Enable-VMIntegrationService -VMName “VMName” -Name “Time Synchronization”<br>   Disable-VMIntegrationService -VMName “VMName” -Name “Time Synchronization”</p>
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+
+参考链接
+[微软官网文档](https://learn.microsoft.com/zh-cn/powershell/module/hyper-v/?view=windowsserver2019-ps) 可以左上角根据自己的系统调整
+</code></pre>
 
       
     </div>
