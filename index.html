@@ -143,7 +143,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,6 +172,303 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/08/23/linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cxk">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+      <meta itemprop="description" content="没事写写东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/23/linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85redis/" class="post-title-link" itemprop="url">linux系统安装redis</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-23 18:20:40 / 修改时间：19:48:47" itemprop="dateCreated datePublished" datetime="2025-08-23T18:20:40+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2025/08/23/linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85redis/" class="post-meta-item leancloud_visitors" data-flag-title="linux系统安装redis" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="使用-apt来安装-Redis："><a href="#使用-apt来安装-Redis：" class="headerlink" title="使用 apt来安装 Redis："></a>使用 apt来安装 Redis：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install redis-server  -y</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line">apt install redis-server -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>安装完成后，Redis 将自动启动。您可以通过运行以下命令来检查 Redis 的状态：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status redis-server</span><br></pre></td></tr></table></figure>
+<p>要测试 Redis 是否正常工作，您可以运行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli ping</span><br></pre></td></tr></table></figure>
+<p>如果 Redis 工作正常，它将返回 PONG。</p>
+<h2 id="Redis-配置"><a href="#Redis-配置" class="headerlink" title="Redis 配置"></a>Redis 配置</h2><p>打开 Redis的配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+<p>将 bind 127.0.0.1 ::1 改为 bind 0.0.0.0，可以外部访问</p>
+<h3 id="修改密码："><a href="#修改密码：" class="headerlink" title="修改密码："></a>修改密码：</h3><p>找到ctrl+b搜索requirepass：<br>找到：requirepass foobared<br>将注释符号去掉，将后面修改成自己的密码，如:<br>requirepass 123456<br>之后重新启动 redis</p>
+<h2 id="redis-服务控制"><a href="#redis-服务控制" class="headerlink" title="redis 服务控制"></a>redis 服务控制</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#启动 redis 服务：</span><br><span class="line"></span><br><span class="line"> sudo systemctl start redis</span><br><span class="line"></span><br><span class="line">#关闭 redis 服务：</span><br><span class="line"></span><br><span class="line"> sudo systemctl stop redis</span><br><span class="line"></span><br><span class="line">#重启 redis 服务：</span><br><span class="line"></span><br><span class="line">sudo service redis restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="redis-客户端连接"><a href="#redis-客户端连接" class="headerlink" title="redis 客户端连接"></a>redis 客户端连接</h2><p>在命令行中输入如下命令来登陆进 redis 客户端</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br></pre></td></tr></table></figure>
+<p>使用密码连接redis </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-cli -h 127.0.0.1 -p 6379 -a Passw0rd</span><br></pre></td></tr></table></figure>
+
+<h2 id="退出redis"><a href="#退出redis" class="headerlink" title="退出redis"></a>退出redis</h2><p>使用QUIT或者EXIT命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QUIT</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXIT</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/08/23/%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cxk">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+      <meta itemprop="description" content="没事写写东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/23/%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F%E7%AB%99/" class="post-title-link" itemprop="url">使用Nginx和Rsync搭建镜像站</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-23 15:28:44 / 修改时间：21:01:18" itemprop="dateCreated datePublished" datetime="2025-08-23T15:28:44+08:00">2025-08-23</time>
+    </span>
+
+  
+    <span id="/2025/08/23/%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F%E7%AB%99/" class="post-meta-item leancloud_visitors" data-flag-title="使用Nginx和Rsync搭建镜像站" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="tunasync搭建类似清华源镜像"><a href="#tunasync搭建类似清华源镜像" class="headerlink" title="tunasync搭建类似清华源镜像"></a>tunasync搭建类似清华源镜像</h2><p>tunasync不知道为什么安装不了。<br>文档：<a target="_blank" rel="noopener" href="https://github.com/tuna/tunasync/blob/master/docs/zh_CN/get_started.md">tunasync&#x2F;docs&#x2F;zh_CN&#x2F;get_started.md at master · tuna&#x2F;tunasync</a><br>下载解压(tar -xvzf archive.tar.gz)，不用编译，按照文档 mkdir 创建文件夹  ，touch 创建文件，可以使用redis。</p>
+<p>运行脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./tunasync manager --config /home/uesr/tuna/tunasync_demo/manager.conf</span><br><span class="line">./tunasync worker --config /home/user/tuna//tunasync_demo/worker.conf</span><br></pre></td></tr></table></figure>
+
+<p>这个脚本疑似需要3个ssh窗口</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tuna/tunasync/blob/master/docs/zh_CN/workers.conf">tunasync&#x2F;docs&#x2F;zh_CN&#x2F;workers.conf at master · tuna&#x2F;tunasync</a></p>
+<p>可以在这里选择要同步的内容</p>
+<p>参考</p>
+<p><a target="_blank" rel="noopener" href="https://fangpsh.github.io/posts/2014/2014-01-01.html">搭建开源镜像站 - fangpsh’s blog</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1910447931695269846">(6 封私信) 使用tunasync部署企业内部开源软件镜像站 - 知乎</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.quickso.cn/2025/01/03/%E4%BD%BF%E7%94%A8tunasync%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">使用tunasync搭建自己的开源软件镜像仓库 - 点滴记忆</a></p>
+<h2 id="基于nginx搭建镜像站"><a href="#基于nginx搭建镜像站" class="headerlink" title="基于nginx搭建镜像站"></a>基于nginx搭建镜像站</h2><p>这个教程基于deepseek</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">怎么使用nginx和rsync搭建一个可用的镜像源站(类似清华源)。只有局域网使用，可以同步ubuntu的东西，用户界面可以超级简陋(甚至只有文件目录），可以使用sh脚本。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><ul>
+<li>Ubuntu服务器（18.04或更高版本）</li>
+<li>充足的磁盘空间（建议至少500GB）</li>
+<li>局域网环境</li>
+</ul>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="1-安装必要的软件包"><a href="#1-安装必要的软件包" class="headerlink" title="1. 安装必要的软件包"></a>1. 安装必要的软件包</h3><p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nginx rsync cron</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-创建镜像存储目录"><a href="#2-创建镜像存储目录" class="headerlink" title="2. 创建镜像存储目录"></a>2. 创建镜像存储目录</h3><p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/mirror/ubuntu</span><br><span class="line">sudo chown -R www-data:www-data /var/www/mirror</span><br><span class="line">sudo chmod -R 755 /var/www/mirror</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置Nginx"><a href="#3-配置Nginx" class="headerlink" title="3. 配置Nginx"></a>3. 配置Nginx</h3><p>创建Nginx配置文件 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/mirror</span><br></pre></td></tr></table></figure>
+<p>添加以下内容：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> _;</span><br><span class="line">    <span class="attribute">root</span> /var/www/mirror;</span><br><span class="line">    <span class="attribute">index</span> index.html;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 启用自动目录列表</span></span><br><span class="line">    <span class="attribute">autoindex</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">autoindex_exact_size</span> <span class="literal">off</span>;</span><br><span class="line">    <span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 限制访问速度（可选）</span></span><br><span class="line">    <span class="comment"># limit_rate 10m;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启用站点并重新加载Nginx：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/nginx/sites-available/mirror /etc/nginx/sites-enabled/</span><br><span class="line">sudo nginx -t</span><br><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-创建同步脚本"><a href="#4-创建同步脚本" class="headerlink" title="4. 创建同步脚本"></a>4. 创建同步脚本</h3><p>创建同步脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/local/bin/sync-mirror.sh</span><br></pre></td></tr></table></figure>
+
+<p>添加以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 镜像源设置（可以使用清华源或其他国内源）</span><br><span class="line">MIRROR_URL=&quot;rsync://mirrors.tuna.tsinghua.edu.cn/ubuntu/&quot;</span><br><span class="line"></span><br><span class="line"># 本地存储路径</span><br><span class="line">LOCAL_PATH=&quot;/var/www/mirror/ubuntu&quot;</span><br><span class="line"></span><br><span class="line"># 日志文件</span><br><span class="line">LOG_FILE=&quot;/var/log/ubuntu-sync.log&quot;</span><br><span class="line"></span><br><span class="line"># 同步选项</span><br><span class="line">RSYNC_OPTIONS=&quot;-avzH --delete --partial --progress --bwlimit=10000&quot;</span><br><span class="line"></span><br><span class="line"># 开始同步</span><br><span class="line">echo &quot;开始同步: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">rsync $RSYNC_OPTIONS $MIRROR_URL $LOCAL_PATH &gt;&gt; $LOG_FILE 2&gt;&amp;1</span><br><span class="line">echo &quot;同步完成: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line"></span><br><span class="line"># 更新权限</span><br><span class="line">chown -R www-data:www-data $LOCAL_PATH</span><br><span class="line">chmod -R 755 $LOCAL_PATH</span><br></pre></td></tr></table></figure>
+
+<p>给脚本执行权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-设置定时同步"><a href="#5-设置定时同步" class="headerlink" title="5. 设置定时同步"></a>5. 设置定时同步</h3><p>编辑<code>cron</code>任务：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>添加以下内容（每天凌晨3点同步）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 * * * /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-首次同步"><a href="#6-首次同步" class="headerlink" title="6. 首次同步"></a>6. 首次同步</h3><p>手动执行首次同步（这将需要很长时间，取决于网络速度和源站负载）：</p>
+<p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-创建简单用户界面-可选"><a href="#7-创建简单用户界面-可选" class="headerlink" title="7. 创建简单用户界面(可选)"></a>7. 创建简单用户界面(可选)</h3><p>可以创建基本HTML页面 <code>/var/www/mirror/index.html</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>局域网Ubuntu镜像站<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123; <span class="attribute">font-family</span>: Arial, sans-serif; <span class="attribute">margin</span>: <span class="number">40px</span>; &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span>; &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">a</span> &#123; <span class="attribute">color</span>: <span class="number">#007bff</span>; <span class="attribute">text-decoration</span>: none; &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">text-decoration</span>: underline; &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>局域网Ubuntu镜像站<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>本镜像站最后更新时间: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;last-update&quot;</span>&gt;</span>未知<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>可用资源:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/ubuntu&quot;</span>&gt;</span>Ubuntu 主仓库<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 尝试从日志中获取最后更新日期</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">fetch</span>(<span class="string">&#x27;/ubuntu-mirror-sync.log&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">            .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">text</span>())</span></span><br><span class="line"><span class="language-javascript">            .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lines = data.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lastUpdate = lines.<span class="title function_">filter</span>(<span class="function"><span class="params">line</span> =&gt;</span> line.<span class="title function_">includes</span>(<span class="string">&#x27;同步完成&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (lastUpdate.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;last-update&#x27;</span>).<span class="property">textContent</span> = lastUpdate[lastUpdate.<span class="property">length</span> - <span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;)</span></span><br><span class="line"><span class="language-javascript">            .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;无法获取更新日志&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-客户端配置"><a href="#8-客户端配置" class="headerlink" title="8. 客户端配置"></a>8. 客户端配置</h3><p>局域网内的其他Ubuntu机器可以使用此镜像站，编辑<code>sources.list</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>替换为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://[你的服务器IP]/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb http://[你的服务器IP]/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb http://[你的服务器IP]/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb http://[你的服务器IP]/ubuntu/ focal-security main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<p>然后运行更新：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<h2 id="管理维护"><a href="#管理维护" class="headerlink" title="管理维护"></a>管理维护</h2><ol>
+<li><p><strong>监控同步状态</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /var/log/ubuntu-mirror-sync.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>手动触发同步</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>检查磁盘使用情况</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h /var/www/mirror</span><br><span class="line">du -sh /var/www/mirror/ubuntu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>同步脚本修改</strong><br>前提：找到同步源<br>中国科学技术大学<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">USTC Open Source Software Mirror</a><br>中科大raync同步方法<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/help/rsync-guide.html">https://mirrors.ustc.edu.cn/help/rsync-guide.html</a><br>查看可同步仓库列表</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync://rsync.mirrors.ustc.edu.cn/</span><br></pre></td></tr></table></figure>
+
+<p>观察目录结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync://rsync.mirrors.ustc.edu.cn/ubuntu/</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync.mirrors.ustc.edu.cn:: #有的高校镜像源的rsync协议的url不带rsync</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">rsync mirrors.nju.edu.cn:: #南京大学的就是</span><br></pre></td></tr></table></figure>
+<p>例如，修改为同步南京大学镜像站的7-zip资源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 南京大学7-Zip镜像源设置</span><br><span class="line">MIRROR_URL=&quot;rsync://mirrors.nju.edu.cn/7-zip/&quot;</span><br><span class="line">LOCAL_PATH=&quot;/var/www/mirror/7-zip&quot;</span><br><span class="line">LOG_FILE=&quot;/var/log/7zip-mirror.log&quot;</span><br><span class="line">#镜像URL：改为南京大学7-Zip的rsync地址 rsync://mirrors.nju.edu.cn/7-zip/</span><br><span class="line">#本地路径：调整为 /var/www/mirror/7-zip 以明确存储内容</span><br><span class="line">#日志文件：更名为 /var/log/7zip-mirror.log</span><br><span class="line"></span><br><span class="line"># 同步选项（保留删除选项以确保镜像一致性）</span><br><span class="line">RSYNC_OPTIONS=&quot;-av --delete --bwlimit=10000&quot;</span><br><span class="line"></span><br><span class="line"># 创建本地目录（如果不存在）</span><br><span class="line">mkdir -p $LOCAL_PATH</span><br><span class="line"></span><br><span class="line"># 开始同步</span><br><span class="line">echo &quot;开始同步7-Zip镜像: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">rsync $RSYNC_OPTIONS $MIRROR_URL $LOCAL_PATH &gt;&gt; $LOG_FILE 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"># 检查同步结果并记录</span><br><span class="line">if [ $? -eq 0 ]; then</span><br><span class="line">    echo &quot;同步成功完成: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    # 更新时间戳</span><br><span class="line">    echo &quot;最后同步时间: $(date)&quot; &gt; $LOCAL_PATH/LAST_SYNC.txt</span><br><span class="line">else</span><br><span class="line">    echo &quot;同步失败，退出代码: $? - $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 添加镜像站信息文件</span><br><span class="line">cat &gt; $LOCAL_PATH/MIRROR_INFO.txt &lt;&lt; EOF</span><br><span class="line">==================================================</span><br><span class="line">                Nanjing University</span><br><span class="line">                  www.nju.edu.cn</span><br><span class="line"></span><br><span class="line">                Open Source Mirror</span><br><span class="line">            http://mirror.nju.edu.cn</span><br><span class="line">            https://mirror.nju.edu.cn</span><br><span class="line">            rsync://mirror.nju.edu.cn</span><br><span class="line">--------------------------------------------------</span><br><span class="line">7-Zip 镜像同步时间: $(date)</span><br><span class="line">镜像路径: $LOCAL_PATH</span><br><span class="line">==================================================</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">echo &quot;同步完成，详细信息请查看: $LOG_FILE&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="改进说明："><a href="#改进说明：" class="headerlink" title="改进说明："></a>改进说明：</h3><ol>
+<li><strong>增强了日志记录</strong>：添加了更详细的分隔符和同步信息</li>
+<li><strong>添加了镜像信息文件</strong>：在本地镜像目录创建 <code>MIRROR_INFO.txt</code> 文件，包含镜像站的基本信息</li>
+<li><strong>改进了错误处理</strong>：更详细地记录同步结果和可能的错误</li>
+<li><strong>添加了完成提示</strong>：脚本执行完成后会在终端显示简要信息</li>
+</ol>
+<h3 id="解决Nginx显示默认欢迎页面问题"><a href="#解决Nginx显示默认欢迎页面问题" class="headerlink" title="解决Nginx显示默认欢迎页面问题"></a>解决Nginx显示默认欢迎页面问题</h3><p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Welcome to nginx!</span><br><span class="line">If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</span><br><span class="line"></span><br><span class="line">For online documentation and support please refer to nginx.org.</span><br><span class="line">Commercial support is available at nginx.com.</span><br><span class="line"></span><br><span class="line">Thank you for using nginx.</span><br></pre></td></tr></table></figure>
+
+<p>看到的Nginx欢迎页面表明仍在运行默认站点。</p>
+<h4 id="1-禁用默认站点"><a href="#1-禁用默认站点" class="headerlink" title="1. 禁用默认站点"></a>1. 禁用默认站点</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用以下命令禁用默认站点</span><br><span class="line">sudo unlink /etc/nginx/sites-enabled/default</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-确认您的镜像站点配置已启用"><a href="#2-确认您的镜像站点配置已启用" class="headerlink" title="2. 确认您的镜像站点配置已启用"></a>2. 确认您的镜像站点配置已启用</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 检查您的镜像站点配置是否已链接到sites-enabled目录</span><br><span class="line">ls -l /etc/nginx/sites-enabled/</span><br><span class="line"></span><br><span class="line"># 如果不存在链接，创建它</span><br><span class="line">sudo ln -s /etc/nginx/sites-available/mirror /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-检查Nginx配置语法"><a href="#3-检查Nginx配置语法" class="headerlink" title="3. 检查Nginx配置语法"></a>3. 检查Nginx配置语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>如果配置正确，您应该看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-重新加载Nginx配置"><a href="#4-重新加载Nginx配置" class="headerlink" title="4. 重新加载Nginx配置"></a>4. 重新加载Nginx配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-验证镜像站点是否正常工作"><a href="#5-验证镜像站点是否正常工作" class="headerlink" title="5. 验证镜像站点是否正常工作"></a>5. 验证镜像站点是否正常工作</h4><p>访问您的服务器IP地址，现在应该显示镜像目录列表而不是欢迎页面。</p>
+<p>下方未试过了</p>
+<hr>
+<h4 id="如果问题仍然存在"><a href="#如果问题仍然存在" class="headerlink" title="如果问题仍然存在"></a>如果问题仍然存在</h4><p>检查Nginx的主配置文件，确保它包含了sites-enabled目录：</p>
+<p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>确保有以下内容（通常在http块中）：</p>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    ...</span><br><span class="line">    include /etc/nginx/sites-enabled/*;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="检查防火墙设置"><a href="#检查防火墙设置" class="headerlink" title="检查防火墙设置"></a>检查防火墙设置</h4><p>确保防火墙允许HTTP流量：</p>
+<p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 如果使用ufw</span><br><span class="line">sudo ufw allow &#x27;Nginx HTTP&#x27;</span><br><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
