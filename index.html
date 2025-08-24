@@ -293,9 +293,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-08-23 15:28:44 / 修改时间：21:01:18" itemprop="dateCreated datePublished" datetime="2025-08-23T15:28:44+08:00">2025-08-23</time>
+      <time title="创建时间：2025-08-23 15:28:44" itemprop="dateCreated datePublished" datetime="2025-08-23T15:28:44+08:00">2025-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-24 22:44:19" itemprop="dateModified" datetime="2025-08-24T22:44:19+08:00">2025-08-24</time>
     </span>
 
   
@@ -391,17 +397,16 @@
 <li><p><strong>检查磁盘使用情况</strong>：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h /var/www/mirror</span><br><span class="line">du -sh /var/www/mirror/ubuntu</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>同步脚本修改</strong><br>前提：找到同步源<br>中国科学技术大学<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">USTC Open Source Software Mirror</a><br>中科大raync同步方法<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/help/rsync-guide.html">https://mirrors.ustc.edu.cn/help/rsync-guide.html</a><br>查看可同步仓库列表</p>
+<li><p><strong>同步脚本修改</strong><br>前提：找到同步源<br>中国科学技术大学<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">USTC Open Source Software Mirror</a><br>中科大raync同步方法<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/help/rsync-guide.html">https://mirrors.ustc.edu.cn/help/rsync-guide.html</a></p>
 </li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync://rsync.mirrors.ustc.edu.cn/</span><br></pre></td></tr></table></figure>
-
-<p>观察目录结构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync://rsync.mirrors.ustc.edu.cn/ubuntu/</span><br></pre></td></tr></table></figure>
+<p>查看一个镜像站可同步仓库列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync.mirrors.ustc.edu.cn:: #有的高校镜像源的rsync协议的url不带rsync</span><br></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync.mirrors.ustc.edu.cn:: #有的高校镜像源的rsync协议的url不带rsync</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">rsync mirrors.nju.edu.cn:: #南京大学的就是</span><br></pre></td></tr></table></figure>
-<p>例如，修改为同步南京大学镜像站的7-zip资源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync mirrors.nju.edu.cn:: #例如南京大学</span><br></pre></td></tr></table></figure>
+<p>查看资源目录结构(以ubuntu为例)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync://rsync.mirrors.ustc.edu.cn/ubuntu/</span><br></pre></td></tr></table></figure>
+<p>修改同步脚本：<br>例如，修改为同步南京大学镜像站的7-zip资源</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 南京大学7-Zip镜像源设置</span><br><span class="line">MIRROR_URL=&quot;rsync://mirrors.nju.edu.cn/7-zip/&quot;</span><br><span class="line">LOCAL_PATH=&quot;/var/www/mirror/7-zip&quot;</span><br><span class="line">LOG_FILE=&quot;/var/log/7zip-mirror.log&quot;</span><br><span class="line">#镜像URL：改为南京大学7-Zip的rsync地址 rsync://mirrors.nju.edu.cn/7-zip/</span><br><span class="line">#本地路径：调整为 /var/www/mirror/7-zip 以明确存储内容</span><br><span class="line">#日志文件：更名为 /var/log/7zip-mirror.log</span><br><span class="line"></span><br><span class="line"># 同步选项（保留删除选项以确保镜像一致性）</span><br><span class="line">RSYNC_OPTIONS=&quot;-av --delete --bwlimit=10000&quot;</span><br><span class="line"></span><br><span class="line"># 创建本地目录（如果不存在）</span><br><span class="line">mkdir -p $LOCAL_PATH</span><br><span class="line"></span><br><span class="line"># 开始同步</span><br><span class="line">echo &quot;开始同步7-Zip镜像: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">rsync $RSYNC_OPTIONS $MIRROR_URL $LOCAL_PATH &gt;&gt; $LOG_FILE 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"># 检查同步结果并记录</span><br><span class="line">if [ $? -eq 0 ]; then</span><br><span class="line">    echo &quot;同步成功完成: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    # 更新时间戳</span><br><span class="line">    echo &quot;最后同步时间: $(date)&quot; &gt; $LOCAL_PATH/LAST_SYNC.txt</span><br><span class="line">else</span><br><span class="line">    echo &quot;同步失败，退出代码: $? - $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 添加镜像站信息文件</span><br><span class="line">cat &gt; $LOCAL_PATH/MIRROR_INFO.txt &lt;&lt; EOF</span><br><span class="line">==================================================</span><br><span class="line">                Nanjing University</span><br><span class="line">                  www.nju.edu.cn</span><br><span class="line"></span><br><span class="line">                Open Source Mirror</span><br><span class="line">            http://mirror.nju.edu.cn</span><br><span class="line">            https://mirror.nju.edu.cn</span><br><span class="line">            rsync://mirror.nju.edu.cn</span><br><span class="line">--------------------------------------------------</span><br><span class="line">7-Zip 镜像同步时间: $(date)</span><br><span class="line">镜像路径: $LOCAL_PATH</span><br><span class="line">==================================================</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">echo &quot;同步完成，详细信息请查看: $LOG_FILE&quot;</span><br></pre></td></tr></table></figure>
 
 <h3 id="改进说明："><a href="#改进说明：" class="headerlink" title="改进说明："></a>改进说明：</h3><ol>
