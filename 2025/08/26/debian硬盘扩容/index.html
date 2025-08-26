@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:/Users/CHENW/AppData/Roaming/Typora/typora-user-images/image-20250826190740347.png">
 <meta property="article:published_time" content="2025-08-26T09:17:49.000Z">
-<meta property="article:modified_time" content="2025-08-26T11:33:12.932Z">
+<meta property="article:modified_time" content="2025-08-26T13:12:00.507Z">
 <meta property="article:author" content="cxk">
 <meta property="article:tag" content="个人博客, Hexo, 技术, 编程">
 <meta name="twitter:card" content="summary">
@@ -217,7 +217,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-08-26 17:17:49 / 修改时间：19:33:12" itemprop="dateCreated datePublished" datetime="2025-08-26T17:17:49+08:00">2025-08-26</time>
+      <time title="创建时间：2025-08-26 17:17:49 / 修改时间：21:12:00" itemprop="dateCreated datePublished" datetime="2025-08-26T17:17:49+08:00">2025-08-26</time>
     </span>
 
   
@@ -301,7 +301,31 @@
 <li><p>重启系统后，磁盘将自动挂载到指定目录。</p>
 </li>
 </ul>
-<h3 id="五、扩展磁盘"><a href="#五、扩展磁盘" class="headerlink" title="五、扩展磁盘"></a>五、扩展磁盘</h3><h3 id="修复磁盘"><a href="#修复磁盘" class="headerlink" title="修复磁盘"></a>修复磁盘</h3><p>以<code>/dev/sdb</code>为例</p>
+<h3 id="五、扩展磁盘"><a href="#五、扩展磁盘" class="headerlink" title="五、扩展磁盘"></a>五、扩展磁盘</h3><p>通过 df -h 输出当前磁盘分区大小 。</p>
+<p>通过 <a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=628502640&content_type=Answer&match_order=1&q=fdisk&zhida_source=entity">fdisk</a> -l 输出所有的磁盘和磁盘分区的详细信息</p>
+<p>进入 fdisk &#x2F;dev&#x2F;sda 输入 p 查看磁盘分配</p>
+<p>删除原始分区</p>
+<p>作者：瞿同学(Darren)<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19968557/answer/3291330723">https://www.zhihu.com/question/19968557/answer/3291330723</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>要扩展分区，必须首先删除有关它的信息。为此，输入d并指定分区（1  &#x2F;dev&#x2F;sda1）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): d</span><br><span class="line">Partition number (1-2, default 2): 1</span><br><span class="line"></span><br><span class="line">Partition 1 has been deleted.</span><br></pre></td></tr></table></figure>
+
+<p>创建新分区</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): n</span><br><span class="line">Partition type</span><br><span class="line">   p   primary (1 primary, 0 extended, 3 free)</span><br><span class="line">   e   extended (container for logical partitions)</span><br><span class="line">Select (default p): </span><br><span class="line"></span><br><span class="line">Using default response p.</span><br><span class="line">Partition number (1,3,4, default 1): 1</span><br><span class="line">First sector (2048-2145486847, default 2048): </span><br><span class="line">Last sector, +/-sectors or +/-size&#123;K,M,G,T,P&#125; (2048-2145486847, default 2145486847): </span><br><span class="line"></span><br><span class="line">Created a new partition 1 of type &#x27;Linux&#x27; and of size 1023 GiB.</span><br></pre></td></tr></table></figure>
+
+<p><strong>系统会询问是否删除当前文件选择 N 不删除，然后输入 w  保存更改。</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 此处不要选 y </span><br><span class="line">Do you want to remove the signature? [Y]es/[N]o: n</span><br><span class="line"></span><br><span class="line">Command (m for help): w</span><br><span class="line"></span><br><span class="line">The partition table has been altered.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+
+<p>重启系统，此处也可以不操作，有条件建议重启一下。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<p>调整 ext4 文件系统的大小  sudo <a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=628502640&content_type=Answer&match_order=1&q=resize2fs&zhida_source=entity">resize2fs</a> &#x2F;dev&#x2F;sda1</p>
+<p>al@debian:~$ sudo resize2fs &#x2F;dev&#x2F;sda1 resize2fs 1.46.2 (28-Feb-2021) Filesystem at &#x2F;dev&#x2F;sda1 is mounted on &#x2F;; on-line resizing required old_desc_blocks &#x3D; 5, new_desc_blocks &#x3D; 128 The filesystem on &#x2F;dev&#x2F;sda1 is now 268185600 (4k) blocks long.</p>
+<p>通过 df -h 可以验证磁盘已经扩展成功</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">al@debian:~$ df -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">udev            7.9G     0  7.9G   0% /dev</span><br><span class="line">tmpfs           1.6G  616K  1.6G   1% /run</span><br><span class="line">/dev/sda1      1007G  4.2G  962G   1% /</span><br><span class="line">tmpfs           7.9G     0  7.9G   0% /dev/shm</span><br><span class="line">tmpfs           5.0M     0  5.0M   0% /run/lock</span><br><span class="line">tmpfs           1.6G     0  1.6G   0% /run/user/1000</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修复磁盘"><a href="#修复磁盘" class="headerlink" title="修复磁盘"></a>修复磁盘</h3><p>以<code>/dev/sdb</code>为例</p>
 <p>卸载分区</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /dev/sdb</span><br></pre></td></tr></table></figure>
 
@@ -316,6 +340,8 @@
 
 <p>参考</p>
 <p><a target="_blank" rel="noopener" href="https://www.hcjike.com/archives/3vvXntda">Debian系统磁盘挂载 - 宏尘极客|笔记</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19968557">(6 封私信) debian如何扩大一个分区? - 知乎</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Sadsvit/article/details/149938177">Linux 磁盘分区与挂载全指南：从磁盘识别到永久配置_linux 硬盘挂载-CSDN博客</a></p>
 
     </div>
 
