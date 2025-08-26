@@ -143,7 +143,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,6 +172,257 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cxk">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+      <meta itemprop="description" content="没事写写东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">服务器使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-26 19:37:05 / 修改时间：20:20:36" itemprop="dateCreated datePublished" datetime="2025-08-26T19:37:05+08:00">2025-08-26</time>
+    </span>
+
+  
+    <span id="/2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="服务器使用" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="debian重启"><a href="#debian重启" class="headerlink" title="debian重启"></a>debian重启</h2><h2 id="Shutdown命令"><a href="#Shutdown命令" class="headerlink" title="Shutdown命令"></a>Shutdown命令</h2><p>你可以将时间字符串（通常是 <code>&quot;now&quot;</code> 或 <code>&quot;hh:mm&quot;</code> 格式）作为第一个参数指定。此外，你还可以附加一条广播消息（wall message），在系统关闭前通知所有已登录用户。</p>
+<p><strong>重要提示：</strong> 如果使用了时间参数，系统会在关机前5分钟创建 <code>/run/nologin</code> 文件，这将阻止新用户登录，以便系统为关机做准备。</p>
+<p>以下是一些 <code>shutdown</code> 命令的示例：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">shutdown # 安排关机</span><br><span class="line">shutdown now #立即关机</span><br><span class="line">shutdown 13:20 #下午1:20关机</span><br><span class="line">shutdown -p now #立即关机并关闭电源</span><br><span class="line">shutdown -H now #立即关机并停止系统（halt）</span><br><span class="line">shutdown -r 09:35 #上午9:35重启</span><br><span class="line">sudo shutdown -r +5 #延迟重启（例如 5 分钟后）：</span><br></pre></td></tr></table></figure>
+
+<p>要取消待处理的关机，只需输入以下命令：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -c</span><br></pre></td></tr></table></figure>
+
+<p>关机选项概览：</p>
+<ul>
+<li><code>-r</code>：关机后重启系统。</li>
+<li><code>-h</code>：关机并由系统决定是暂停（halt）还是关闭电源（power off）。</li>
+<li><code>-H</code>：仅暂停（halt）系统。</li>
+<li><code>-P</code>：关闭系统电源（power off）。</li>
+<li><code>-c</code>：取消已计划的关机操作。</li>
+<li><code>-k</code>：只发送警告信息，不实际关机。</li>
+</ul>
+<p><strong>纠正说明：</strong><br>一个常见错误是使用 <code>shutdown -p</code>，这是无效的。正确的关闭电源命令应为<code>shutdown -P</code>。</p>
+<h2 id="Reboot命令"><a href="#Reboot命令" class="headerlink" title="Reboot命令"></a>Reboot命令</h2><p><code>reboot</code>命令指示系统重新启动。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reboot  #重启系统（reboot）</span><br><span class="line">reboot --halt  #暂停系统（halt）</span><br><span class="line">reboot -p  #关闭系统电源（power off）</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-systemctl-命令"><a href="#使用-systemctl-命令" class="headerlink" title="使用 systemctl 命令"></a>使用 systemctl 命令</h2><p>systemctl 是现代 Linux 系统中管理服务的工具，也可用于关闭&#x2F;重启系统：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl poweroff     # 关机</span><br><span class="line">sudo systemctl reboot       # 重启</span><br><span class="line">sudo systemctl halt         # 挂起</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/08/26/debian%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cxk">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+      <meta itemprop="description" content="没事写写东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/26/debian%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9/" class="post-title-link" itemprop="url">debian硬盘扩容</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-08-26 17:17:49 / 修改时间：19:33:12" itemprop="dateCreated datePublished" datetime="2025-08-26T17:17:49+08:00">2025-08-26</time>
+    </span>
+
+  
+    <span id="/2025/08/26/debian%E7%A1%AC%E7%9B%98%E6%89%A9%E5%AE%B9/" class="post-meta-item leancloud_visitors" data-flag-title="debian硬盘扩容" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Hyper-V中，可以</p>
+<h3 id="一、查看磁盘信息"><a href="#一、查看磁盘信息" class="headerlink" title="一、查看磁盘信息"></a>一、查看磁盘信息</h3><p>在Debian系统中，我们可以使用<code>fdisk</code>命令来查看磁盘信息。请按照以下步骤操作：</p>
+<ol>
+<li><p>打开终端。</p>
+</li>
+<li><p>输入<code>fdisk -l</code>命令，查看所有磁盘的分区情况。</p>
+<p><img src="C:/Users/CHENW/AppData/Roaming/Typora/typora-user-images/image-20250826190740347.png" alt="image-20250826190740347"></p>
+</li>
+</ol>
+<p>该命令将列出系统中所有磁盘及其分区信息，包括磁盘名称、大小、分区类型等。</p>
+<h3 id="二、初始化磁盘"><a href="#二、初始化磁盘" class="headerlink" title="二、初始化磁盘"></a>二、初始化磁盘</h3><p>初始化磁盘通常包括创建分区和格式化分区两个步骤</p>
+<ol>
+<li><strong>创建分区</strong>：</li>
+</ol>
+<ul>
+<li><p>使用<code>fdisk</code>命令进入磁盘分区界面：<code>fdisk /dev/sdb</code>（其中<code>sdb</code>为目标磁盘名称）。</p>
+</li>
+<li><p>输入<code>m</code>可查看所有指令。</p>
+</li>
+<li><p>根据提示进行分区操作，如输入<code>n</code>新增一个分区，输入分区号、分区大小完成分区。</p>
+</li>
+<li><p>完成后使用<code>w</code>保存并退出。</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>格式化分区</strong>：</li>
+</ol>
+<ul>
+<li><p>使用<code>mkfs</code>命令对新建分区进行格式化，例如：<code>mkfs -t ext4 /dev/sdb1</code>（其中<code>sdb1</code>为新创建的分区名称）。</p>
+</li>
+<li><p>根据需要选择文件系统类型，如<code>ext4</code>、<code>xfs</code>等。</p>
+</li>
+<li><h3 id="三、挂载磁盘"><a href="#三、挂载磁盘" class="headerlink" title="三、挂载磁盘"></a>三、挂载磁盘</h3><p>挂载磁盘是将磁盘分区与文件系统中的目录进行关联的过程。请按照以下步骤操作：</p>
+<ul>
+<li><p>创建一个用于挂载的目录，例如：<code>mkdir /www</code>。</p>
+</li>
+<li><p>使用<code>mount</code>命令将分区挂载到指定目录：<code>mount /dev/sdb1 /www</code>。</p>
+</li>
+<li><p>通过<code>df -h</code>命令确认挂载成功。</p>
+</li>
+</ul>
+<h3 id="四、设置开机自动挂载"><a href="#四、设置开机自动挂载" class="headerlink" title="四、设置开机自动挂载"></a>四、设置开机自动挂载</h3><p>为了确保每次开机时磁盘都能自动挂载，我们需要将挂载信息添加到<code>/etc/fstab</code>文件中。</p>
+<p>nano使用方法：</p>
+<p>编辑完成后，使用 <code>Ctrl + O</code> 确认保存，然后 <code>Enter</code> 确认文件名，最后使用 <code>Ctrl + X</code> 退出<code>nano</code>编辑器。这样你的更改就会被保存，并且编辑器也会关闭。如果你在编辑过程中决定不保存更改并退出，可以直接按 <code>Ctrl + X</code>，编辑器会询问你是否保存更改，此时你可以选择不保存直接退出。</p>
+</li>
+<li><p>在文件末尾添加一行类似于以下内容的挂载信息：<code>/dev/sdb1 /www ext4 defaults 0 0</code>。</p>
+<ul>
+<li>第一列为<code>磁盘分区路径</code>。</li>
+<li>第二列为<code>挂载目录</code>。</li>
+<li>第三列为<code>文件系统类型</code>。</li>
+<li>后两列分别表示<code>dump备份标志</code>和<code>fsck检查顺序</code>，一般设置为<code>0</code>即可。</li>
+</ul>
+</li>
+<li><p>保存并关闭文件。</p>
+</li>
+<li><p>重启系统后，磁盘将自动挂载到指定目录。</p>
+</li>
+</ul>
+<h3 id="五、扩展磁盘"><a href="#五、扩展磁盘" class="headerlink" title="五、扩展磁盘"></a>五、扩展磁盘</h3><h3 id="修复磁盘"><a href="#修复磁盘" class="headerlink" title="修复磁盘"></a>修复磁盘</h3><p>以<code>/dev/sdb</code>为例</p>
+<p>卸载分区</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /dev/sdb</span><br></pre></td></tr></table></figure>
+
+<p>运行<strong>fsck 。</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fsck /dev/sdb</span><br></pre></td></tr></table></figure>
+
+<p>或者选择自动修复（当文件系统不止一个错误的时候）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fsck -y /dev/sdb</span><br></pre></td></tr></table></figure>
+
+<p>在所有文件系统上运行修复（没有<strong>root</strong>）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fsck -AR -y </span><br></pre></td></tr></table></figure>
+
+<p>参考</p>
+<p><a target="_blank" rel="noopener" href="https://www.hcjike.com/archives/3vvXntda">Debian系统磁盘挂载 - 宏尘极客|笔记</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1238,89 +1489,9 @@ Optimize-VHD -Path &quot;C:\VHDs\disk.vhdx&quot; -Mode Full
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/08/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cxk">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的博客">
-      <meta itemprop="description" content="没事写写东西">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 我的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" class="post-title-link" itemprop="url">测试文章</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-11 21:46:55" itemprop="dateCreated datePublished" datetime="2025-08-11T21:46:55+08:00">2025-08-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-23 21:21:19" itemprop="dateModified" datetime="2025-08-23T21:21:19+08:00">2025-08-23</time>
-    </span>
-
-  
-    <span id="/2025/08/11/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" class="post-meta-item leancloud_visitors" data-flag-title="测试文章" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>一个测试文章</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
 
 </div>
   </main>
