@@ -283,7 +283,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">服务器使用</a>
+          <a href="/2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">服务器开关机</a>
         </h2>
 
         <div class="post-meta-container">
@@ -293,13 +293,19 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-08-26 19:37:05 / 修改时间：23:29:25" itemprop="dateCreated datePublished" datetime="2025-08-26T19:37:05+08:00">2025-08-26</time>
+      <time title="创建时间：2025-08-26 19:37:05" itemprop="dateCreated datePublished" datetime="2025-08-26T19:37:05+08:00">2025-08-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-24 22:23:51" itemprop="dateModified" datetime="2025-09-24T22:23:51+08:00">2025-09-24</time>
     </span>
 
   
-    <span id="/2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="服务器使用" title="阅读次数">
+    <span id="/2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="服务器开关机" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -315,33 +321,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="debian重启"><a href="#debian重启" class="headerlink" title="debian重启"></a>debian重启</h2><h2 id="Shutdown命令"><a href="#Shutdown命令" class="headerlink" title="Shutdown命令"></a>Shutdown命令</h2><p>你可以将时间字符串（通常是 <code>&quot;now&quot;</code> 或 <code>&quot;hh:mm&quot;</code> 格式）作为第一个参数指定。此外，你还可以附加一条广播消息（wall message），在系统关闭前通知所有已登录用户。</p>
-<p><strong>重要提示：</strong> 如果使用了时间参数，系统会在关机前5分钟创建 <code>/run/nologin</code> 文件，这将阻止新用户登录，以便系统为关机做准备。</p>
-<p>以下是一些 <code>shutdown</code> 命令的示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown # 安排关机</span><br><span class="line">sudo shutdown now #立即关机</span><br><span class="line">sudo shutdown 13:20 #下午1:20关机</span><br><span class="line">sudo shutdown -p now #立即关机并关闭电源</span><br><span class="line">sudo shutdown -H now #立即关机并停止系统（halt）</span><br><span class="line">sudo shutdown -r 09:35 #上午9:35重启</span><br><span class="line">sudo shutdown -r +5 #延迟重启（例如 5 分钟后）：</span><br></pre></td></tr></table></figure>
-
-<p>要取消待处理的关机，只需输入以下命令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -c</span><br></pre></td></tr></table></figure>
-
-<p>关机选项概览：</p>
-<ul>
-<li><code>-r</code>：关机后重启系统。</li>
-<li><code>-h</code>：关机并由系统决定是暂停（halt）还是关闭电源（power off）。</li>
-<li><code>-H</code>：仅暂停（halt）系统。</li>
-<li><code>-P</code>：关闭系统电源（power off）。</li>
-<li><code>-c</code>：取消已计划的关机操作。</li>
-<li><code>-k</code>：只发送警告信息，不实际关机。</li>
-</ul>
-<p><strong>纠正说明：</strong><br>一个常见错误是使用 <code>shutdown -p</code>，这是无效的。正确的关闭电源命令应为<code>shutdown -P</code>。</p>
-<h2 id="Reboot命令"><a href="#Reboot命令" class="headerlink" title="Reboot命令"></a>Reboot命令</h2><p><code>reboot</code>命令指示系统重新启动。</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reboot  #重启系统（reboot）</span><br><span class="line">reboot --halt  #暂停系统（halt）</span><br><span class="line">reboot -p  #关闭系统电源（power off）</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-systemctl-命令"><a href="#使用-systemctl-命令" class="headerlink" title="使用 systemctl 命令"></a>使用 systemctl 命令</h2><p>systemctl 是现代 Linux 系统中管理服务的工具，也可用于关闭&#x2F;重启系统：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl poweroff     # 关机</span><br><span class="line">sudo systemctl reboot       # 重启</span><br><span class="line">sudo systemctl halt         # 挂起</span><br></pre></td></tr></table></figure>
-
-
-
-
+          <p>暂时只有开关机</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%BF%E7%94%A8/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -671,7 +659,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-26 21:16:07" itemprop="dateModified" datetime="2025-08-26T21:16:07+08:00">2025-08-26</time>
+      <time title="修改时间：2025-09-24 22:23:05" itemprop="dateModified" datetime="2025-09-24T22:23:05+08:00">2025-09-24</time>
     </span>
 
   
@@ -691,140 +679,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="tunasync搭建类似清华源镜像"><a href="#tunasync搭建类似清华源镜像" class="headerlink" title="tunasync搭建类似清华源镜像"></a>tunasync搭建类似清华源镜像</h2><p>tunasync不知道为什么安装不了。<br>文档：<a target="_blank" rel="noopener" href="https://github.com/tuna/tunasync/blob/master/docs/zh_CN/get_started.md">tunasync&#x2F;docs&#x2F;zh_CN&#x2F;get_started.md at master · tuna&#x2F;tunasync</a><br>下载解压(tar -xvzf archive.tar.gz)，不用编译，按照文档 mkdir 创建文件夹  ，touch 创建文件，可以使用redis。</p>
-<p>运行脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./tunasync manager --config /home/uesr/tuna/tunasync_demo/manager.conf</span><br><span class="line">./tunasync worker --config /home/user/tuna//tunasync_demo/worker.conf</span><br></pre></td></tr></table></figure>
-
-<p>这个脚本疑似需要3个ssh窗口</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tuna/tunasync/blob/master/docs/zh_CN/workers.conf">tunasync&#x2F;docs&#x2F;zh_CN&#x2F;workers.conf at master · tuna&#x2F;tunasync</a></p>
-<p>可以在这里选择要同步的内容</p>
-<p>参考</p>
-<p><a target="_blank" rel="noopener" href="https://fangpsh.github.io/posts/2014/2014-01-01.html">搭建开源镜像站 - fangpsh’s blog</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1910447931695269846">(6 封私信) 使用tunasync部署企业内部开源软件镜像站 - 知乎</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.quickso.cn/2025/01/03/%E4%BD%BF%E7%94%A8tunasync%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">使用tunasync搭建自己的开源软件镜像仓库 - 点滴记忆</a></p>
-<h2 id="基于nginx搭建镜像站"><a href="#基于nginx搭建镜像站" class="headerlink" title="基于nginx搭建镜像站"></a>基于nginx搭建镜像站</h2><p>这个教程基于deepseek</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">怎么使用nginx和rsync搭建一个可用的镜像源站(类似清华源)。只有局域网使用，可以同步ubuntu的东西，用户界面可以超级简陋(甚至只有文件目录），可以使用sh脚本。</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><ul>
-<li>Ubuntu服务器（18.04或更高版本）</li>
-<li>充足的磁盘空间（建议至少500GB）</li>
-<li>局域网环境</li>
-</ul>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="1-安装必要的软件包"><a href="#1-安装必要的软件包" class="headerlink" title="1. 安装必要的软件包"></a>1. 安装必要的软件包</h3><p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nginx rsync cron</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-创建镜像存储目录"><a href="#2-创建镜像存储目录" class="headerlink" title="2. 创建镜像存储目录"></a>2. 创建镜像存储目录</h3><p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/mirror/ubuntu</span><br><span class="line">sudo chown -R www-data:www-data /var/www/mirror</span><br><span class="line">sudo chmod -R 755 /var/www/mirror</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-配置Nginx"><a href="#3-配置Nginx" class="headerlink" title="3. 配置Nginx"></a>3. 配置Nginx</h3><p>创建Nginx配置文件 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/mirror</span><br></pre></td></tr></table></figure>
-<p>添加以下内容：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> _;</span><br><span class="line">    <span class="attribute">root</span> /var/www/mirror;</span><br><span class="line">    <span class="attribute">index</span> index.html;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 启用自动目录列表</span></span><br><span class="line">    <span class="attribute">autoindex</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">autoindex_exact_size</span> <span class="literal">off</span>;</span><br><span class="line">    <span class="attribute">autoindex_localtime</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 限制访问速度（可选）</span></span><br><span class="line">    <span class="comment"># limit_rate 10m;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>启用站点并重新加载Nginx：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/nginx/sites-available/mirror /etc/nginx/sites-enabled/</span><br><span class="line">sudo nginx -t</span><br><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-创建同步脚本"><a href="#4-创建同步脚本" class="headerlink" title="4. 创建同步脚本"></a>4. 创建同步脚本</h3><p>创建同步脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/local/bin/sync-mirror.sh</span><br></pre></td></tr></table></figure>
-
-<p>添加以下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 镜像源设置（可以使用清华源或其他国内源）</span><br><span class="line">MIRROR_URL=&quot;rsync://mirrors.tuna.tsinghua.edu.cn/ubuntu/&quot;</span><br><span class="line"></span><br><span class="line"># 本地存储路径</span><br><span class="line">LOCAL_PATH=&quot;/var/www/mirror/ubuntu&quot;</span><br><span class="line"></span><br><span class="line"># 日志文件</span><br><span class="line">LOG_FILE=&quot;/var/log/ubuntu-sync.log&quot;</span><br><span class="line"></span><br><span class="line"># 同步选项</span><br><span class="line">RSYNC_OPTIONS=&quot;-avzH --delete --partial --progress --bwlimit=10000&quot;</span><br><span class="line"></span><br><span class="line"># 开始同步</span><br><span class="line">echo &quot;开始同步: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">rsync $RSYNC_OPTIONS $MIRROR_URL $LOCAL_PATH &gt;&gt; $LOG_FILE 2&gt;&amp;1</span><br><span class="line">echo &quot;同步完成: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line"></span><br><span class="line"># 更新权限</span><br><span class="line">chown -R www-data:www-data $LOCAL_PATH</span><br><span class="line">chmod -R 755 $LOCAL_PATH</span><br></pre></td></tr></table></figure>
-
-<p>给脚本执行权限：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-设置定时同步"><a href="#5-设置定时同步" class="headerlink" title="5. 设置定时同步"></a>5. 设置定时同步</h3><p>编辑<code>cron</code>任务：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo crontab -e</span><br></pre></td></tr></table></figure>
-
-<p>添加以下内容（每天凌晨3点同步）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 * * * /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-首次同步"><a href="#6-首次同步" class="headerlink" title="6. 首次同步"></a>6. 首次同步</h3><p>手动执行首次同步（这将需要很长时间，取决于网络速度和源站负载）：</p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-创建简单用户界面-可选"><a href="#7-创建简单用户界面-可选" class="headerlink" title="7. 创建简单用户界面(可选)"></a>7. 创建简单用户界面(可选)</h3><p>可以创建基本HTML页面 <code>/var/www/mirror/index.html</code>：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>局域网Ubuntu镜像站<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">body</span> &#123; <span class="attribute">font-family</span>: Arial, sans-serif; <span class="attribute">margin</span>: <span class="number">40px</span>; &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">h1</span> &#123; <span class="attribute">color</span>: <span class="number">#333</span>; &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">a</span> &#123; <span class="attribute">color</span>: <span class="number">#007bff</span>; <span class="attribute">text-decoration</span>: none; &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">text-decoration</span>: underline; &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>局域网Ubuntu镜像站<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>本镜像站最后更新时间: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;last-update&quot;</span>&gt;</span>未知<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>可用资源:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/ubuntu&quot;</span>&gt;</span>Ubuntu 主仓库<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 尝试从日志中获取最后更新日期</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">fetch</span>(<span class="string">&#x27;/ubuntu-mirror-sync.log&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">            .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">text</span>())</span></span><br><span class="line"><span class="language-javascript">            .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lines = data.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">const</span> lastUpdate = lines.<span class="title function_">filter</span>(<span class="function"><span class="params">line</span> =&gt;</span> line.<span class="title function_">includes</span>(<span class="string">&#x27;同步完成&#x27;</span>));</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (lastUpdate.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;last-update&#x27;</span>).<span class="property">textContent</span> = lastUpdate[lastUpdate.<span class="property">length</span> - <span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript">            &#125;)</span></span><br><span class="line"><span class="language-javascript">            .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;无法获取更新日志&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="8-客户端配置"><a href="#8-客户端配置" class="headerlink" title="8. 客户端配置"></a>8. 客户端配置</h3><p>局域网内的其他Ubuntu机器可以使用此镜像站，编辑<code>sources.list</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<p>替换为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://[你的服务器IP]/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb http://[你的服务器IP]/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb http://[你的服务器IP]/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb http://[你的服务器IP]/ubuntu/ focal-security main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
-<p>然后运行更新：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<h2 id="管理维护"><a href="#管理维护" class="headerlink" title="管理维护"></a>管理维护</h2><ol>
-<li><p><strong>监控同步状态</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /var/log/ubuntu-mirror-sync.log</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>手动触发同步</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/bin/sync-ubuntu-mirror.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>检查磁盘使用情况</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h /var/www/mirror</span><br><span class="line">du -sh /var/www/mirror/ubuntu</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>同步脚本修改</strong><br>前提：找到同步源<br>中国科学技术大学<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">USTC Open Source Software Mirror</a><br>中科大raync同步方法<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/help/rsync-guide.html">https://mirrors.ustc.edu.cn/help/rsync-guide.html</a></p>
-</li>
-</ol>
-<p>查看一个镜像站可同步仓库列表</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync.mirrors.ustc.edu.cn:: #有的高校镜像源的rsync协议的url不带rsync</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync mirrors.nju.edu.cn:: #例如南京大学</span><br></pre></td></tr></table></figure>
-<p>查看资源目录结构(以ubuntu为例)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync rsync://rsync.mirrors.ustc.edu.cn/ubuntu/</span><br></pre></td></tr></table></figure>
-<p>修改同步脚本：<br>例如，修改为同步南京大学镜像站的7-zip资源</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># 南京大学7-Zip镜像源设置</span><br><span class="line">MIRROR_URL=&quot;rsync://mirrors.nju.edu.cn/7-zip/&quot;</span><br><span class="line">LOCAL_PATH=&quot;/var/www/mirror/7-zip&quot;</span><br><span class="line">LOG_FILE=&quot;/var/log/7zip-mirror.log&quot;</span><br><span class="line">#镜像URL：改为南京大学7-Zip的rsync地址 rsync://mirrors.nju.edu.cn/7-zip/</span><br><span class="line">#本地路径：调整为 /var/www/mirror/7-zip 以明确存储内容</span><br><span class="line">#日志文件：更名为 /var/log/7zip-mirror.log</span><br><span class="line"></span><br><span class="line"># 同步选项（保留删除选项以确保镜像一致性）</span><br><span class="line">RSYNC_OPTIONS=&quot;-av --delete --bwlimit=10000&quot;</span><br><span class="line"></span><br><span class="line"># 创建本地目录（如果不存在）</span><br><span class="line">mkdir -p $LOCAL_PATH</span><br><span class="line"></span><br><span class="line"># 开始同步</span><br><span class="line">echo &quot;开始同步7-Zip镜像: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">rsync $RSYNC_OPTIONS $MIRROR_URL $LOCAL_PATH &gt;&gt; $LOG_FILE 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"># 检查同步结果并记录</span><br><span class="line">if [ $? -eq 0 ]; then</span><br><span class="line">    echo &quot;同步成功完成: $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    # 更新时间戳</span><br><span class="line">    echo &quot;最后同步时间: $(date)&quot; &gt; $LOCAL_PATH/LAST_SYNC.txt</span><br><span class="line">else</span><br><span class="line">    echo &quot;同步失败，退出代码: $? - $(date)&quot; &gt;&gt; $LOG_FILE</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 添加镜像站信息文件</span><br><span class="line">cat &gt; $LOCAL_PATH/MIRROR_INFO.txt &lt;&lt; EOF</span><br><span class="line">==================================================</span><br><span class="line">                Nanjing University</span><br><span class="line">                  www.nju.edu.cn</span><br><span class="line"></span><br><span class="line">                Open Source Mirror</span><br><span class="line">            http://mirror.nju.edu.cn</span><br><span class="line">            https://mirror.nju.edu.cn</span><br><span class="line">            rsync://mirror.nju.edu.cn</span><br><span class="line">--------------------------------------------------</span><br><span class="line">7-Zip 镜像同步时间: $(date)</span><br><span class="line">镜像路径: $LOCAL_PATH</span><br><span class="line">==================================================</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">echo &quot;同步完成，详细信息请查看: $LOG_FILE&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="改进说明："><a href="#改进说明：" class="headerlink" title="改进说明："></a>改进说明：</h3><ol>
-<li><strong>增强了日志记录</strong>：添加了更详细的分隔符和同步信息</li>
-<li><strong>添加了镜像信息文件</strong>：在本地镜像目录创建 <code>MIRROR_INFO.txt</code> 文件，包含镜像站的基本信息</li>
-<li><strong>改进了错误处理</strong>：更详细地记录同步结果和可能的错误</li>
-<li><strong>添加了完成提示</strong>：脚本执行完成后会在终端显示简要信息</li>
-</ol>
-<h3 id="解决Nginx显示默认欢迎页面问题"><a href="#解决Nginx显示默认欢迎页面问题" class="headerlink" title="解决Nginx显示默认欢迎页面问题"></a>解决Nginx显示默认欢迎页面问题</h3><p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Welcome to nginx!</span><br><span class="line">If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</span><br><span class="line"></span><br><span class="line">For online documentation and support please refer to nginx.org.</span><br><span class="line">Commercial support is available at nginx.com.</span><br><span class="line"></span><br><span class="line">Thank you for using nginx.</span><br></pre></td></tr></table></figure>
-
-<p>看到的Nginx欢迎页面表明仍在运行默认站点。</p>
-<h4 id="1-禁用默认站点"><a href="#1-禁用默认站点" class="headerlink" title="1. 禁用默认站点"></a>1. 禁用默认站点</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用以下命令禁用默认站点</span><br><span class="line">sudo unlink /etc/nginx/sites-enabled/default</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-确认您的镜像站点配置已启用"><a href="#2-确认您的镜像站点配置已启用" class="headerlink" title="2. 确认您的镜像站点配置已启用"></a>2. 确认您的镜像站点配置已启用</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 检查您的镜像站点配置是否已链接到sites-enabled目录</span><br><span class="line">ls -l /etc/nginx/sites-enabled/</span><br><span class="line"></span><br><span class="line"># 如果不存在链接，创建它</span><br><span class="line">sudo ln -s /etc/nginx/sites-available/mirror /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-检查Nginx配置语法"><a href="#3-检查Nginx配置语法" class="headerlink" title="3. 检查Nginx配置语法"></a>3. 检查Nginx配置语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t</span><br></pre></td></tr></table></figure>
-
-<p>如果配置正确，您应该看到：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-重新加载Nginx配置"><a href="#4-重新加载Nginx配置" class="headerlink" title="4. 重新加载Nginx配置"></a>4. 重新加载Nginx配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl reload nginx</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-验证镜像站点是否正常工作"><a href="#5-验证镜像站点是否正常工作" class="headerlink" title="5. 验证镜像站点是否正常工作"></a>5. 验证镜像站点是否正常工作</h4><p>访问您的服务器IP地址，现在应该显示镜像目录列表而不是欢迎页面。</p>
-<p>下方未试过了</p>
-<hr>
-<h4 id="如果问题仍然存在"><a href="#如果问题仍然存在" class="headerlink" title="如果问题仍然存在"></a>如果问题仍然存在</h4><p>检查Nginx的主配置文件，确保它包含了sites-enabled目录：</p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
-
-<p>确保有以下内容（通常在http块中）：</p>
-<p>text</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    ...</span><br><span class="line">    include /etc/nginx/sites-enabled/*;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="检查防火墙设置"><a href="#检查防火墙设置" class="headerlink" title="检查防火墙设置"></a>检查防火墙设置</h4><p>确保防火墙允许HTTP流量：</p>
-<p>bash</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 如果使用ufw</span><br><span class="line">sudo ufw allow &#x27;Nginx HTTP&#x27;</span><br><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
-
-<p>debian部分同步</p>
-<p>可以使用ftpsync同步特定架构的debian软件包：比如不需要mips,s390x架构的包。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34090643/article/details/92210257">搭建debian源镜像服务器-CSDN博客</a></p>
-<p>[debian ftpsync sync debian-port<a target="_blank" rel="noopener" href="https://www.aftermath.cn/2022/04/17/debian-ftpsync-usage-for-debian-ports/">riscv64] mirror</a></p>
-<p><a target="_blank" rel="noopener" href="https://packages.debian.org/stable/ftpsync">Debian – 在 trixie 中的 ftpsync 软件包详细信息</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yuanchao99/article/details/9111279">使用nginx搭建debian源镜像服务器_ftpsync debain-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.debian.org/mirror/ftpmirror.zh-cn.html">Debian – 建立一个 Debian 仓库的镜像</a></p>
-
+          <p>只能说没用~~~</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/23/%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F%E7%AB%99/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -878,9 +741,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-08-19 19:18:57 / 修改时间：23:28:58" itemprop="dateCreated datePublished" datetime="2025-08-19T19:18:57+08:00">2025-08-19</time>
+      <time title="创建时间：2025-08-19 19:18:57" itemprop="dateCreated datePublished" datetime="2025-08-19T19:18:57+08:00">2025-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-24 22:26:29" itemprop="dateModified" datetime="2025-09-24T22:26:29+08:00">2025-09-24</time>
     </span>
 
   
@@ -900,143 +769,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>   Hyper-v使用命令行是为了方便使用脚本管理。。。</p>
-<h3 id="查看本地帮助"><a href="#查看本地帮助" class="headerlink" title="查看本地帮助"></a>查看本地帮助</h3><ol>
-<li><p>选择 Windows 开始按钮，然后右键选择，点击 <strong>PowerShell</strong>。</p>
-</li>
-<li><p>可以运行以下命令以显示 Hyper-V PowerShell 模块提供的 PowerShell 命令的可搜索列表。</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Command -Module hyper-v | Out-GridView</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/cwx2006/picture/main/image-20250819210822371.png"></p>
-<p>若要了解有关特定 PowerShell 命令的详细信息，请使用 <code>Get-Help</code>。 例如，运行以下命令将返回有关 <code>Get-VM</code> Hyper-V 命令的信息。</p>
-<p>需要加载一会</p>
-<p><img src="https://raw.githubusercontent.com/cwx2006/picture/main/image-20250819211730497.png" alt="image-20250819211730497"></p>
-<h3 id="查看现有的虚拟机"><a href="#查看现有的虚拟机" class="headerlink" title="查看现有的虚拟机"></a>查看现有的虚拟机</h3><p><code>Get-VM</code>使用命令返回虚拟机列表</p>
-<ol>
-<li>PowerShell 中运行以下命令：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/cwx2006/picture/main/image-20250819213333357.png" alt="image-20250819213333357"></p>
-<p>若要查看开机的虚拟机，可以使用命令添加 <code>Where-Object</code> 筛选器。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | where &#123;$_.State -eq &#x27;Running&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>查看关及状态的所有虚拟机</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM | where &#123;$_.State -eq &#x27;Off&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动和关闭虚拟机"><a href="#启动和关闭虚拟机" class="headerlink" title="启动和关闭虚拟机"></a>启动和关闭虚拟机</h3><ol>
-<li><p>若要启动一台虚拟机，请使用虚拟机的名称运行以下命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-VM</span> <span class="literal">-Name</span> 虚拟机名字</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>若要启动当前关闭的所有虚拟机，请获取这些计算机的列表，并将列表通过管道传递给 <code>Start-VM</code> 命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-VM</span> | <span class="built_in">where</span> &#123;<span class="variable">$_</span>.State <span class="operator">-eq</span> <span class="string">&#x27;Off&#x27;</span>&#125; | <span class="built_in">Start-VM</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>若需要启动以debia 开头的虚拟机：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Start-VM -Name debia*   </span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>关闭以debia 开头的虚拟机：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stop-VM debia* </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>强制关机</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stop-VM -Name &#x27;虚拟机名&#x27; –Force</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>若要关闭所有正在运行的虚拟机，请运行以下命令：</p>
-</li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-VM</span> | <span class="built_in">where</span> &#123;<span class="variable">$_</span>.State <span class="operator">-eq</span> <span class="string">&#x27;Running&#x27;</span>&#125; | <span class="built_in">Stop-VM</span></span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>保存虚拟机</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Save-VM -Name &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
-
-
-<ol start="8">
-<li>保存以debia*开头的虚拟机<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM -Name debia* | Save-VM</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="创建虚拟机检查点（快照）"><a href="#创建虚拟机检查点（快照）" class="headerlink" title="创建虚拟机检查点（快照）"></a>创建虚拟机检查点（快照）</h3><p>若要使用 PowerShell 创建检查点，使用命令选择虚拟机 <code>Get-VM</code> ，并将其传递给 <code>Checkpoint-VM</code> 命令。 最后，使用 <code>-SnapshotName</code> 为检查点命名。 完整的命令如下所示：</p>
-<p>创建虚拟机debian的名为Update1的检查点。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Checkpoint-VM -Name &#x27;debian&#x27; -SnapshotName Update1</span><br></pre></td></tr></table></figure>
-<p>查看检查点：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VMSnapshot -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
-<p>如果要删除名称以“ Update”开头的所有快照，则应运行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-VM &#x27;debian&#x27; | Remove-VMSnapshot -Name Update*</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建新的虚拟机"><a href="#创建新的虚拟机" class="headerlink" title="创建新的虚拟机"></a>创建新的虚拟机</h3><p>以下示例演示如何在 PowerShell 集成脚本环境（ISE）中创建新的虚拟机。 这是一个简单的示例，可以将其扩展为包括其他 PowerShell 功能和更高级的 VM 部署。</p>
-<ol>
-<li><p>若要打开 PowerShell ISE 单击“开始”，请键入 <strong>PowerShell ISE</strong>。</p>
-</li>
-<li><p>运行以下代码以创建虚拟机。 有关命令的详细信息，请参阅 <code>New-VM</code> 文档。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$VMName</span> = <span class="string">&quot;VMNAME&quot;</span></span><br><span class="line">   </span><br><span class="line"><span class="variable">$VM</span> = <span class="selector-tag">@</span>&#123;</span><br><span class="line">    Name = <span class="variable">$VMName</span></span><br><span class="line">    MemoryStartupBytes = <span class="number">2147483648</span></span><br><span class="line">    Generation = <span class="number">2</span></span><br><span class="line">    NewVHDPath = <span class="string">&quot;C:\Virtual Machines\<span class="variable">$VMName</span>\<span class="variable">$VMName</span>.vhdx&quot;</span></span><br><span class="line">    NewVHDSizeBytes = <span class="number">53687091200</span></span><br><span class="line">    BootDevice = <span class="string">&quot;VHD&quot;</span></span><br><span class="line">    Path = <span class="string">&quot;C:\Virtual Machines\<span class="variable">$VMName</span>&quot;</span></span><br><span class="line">    SwitchName = (<span class="built_in">Get-VMSwitch</span>).Name</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="built_in">New-VM</span> @VM</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="查看虚拟机状态"><a href="#查看虚拟机状态" class="headerlink" title="查看虚拟机状态"></a>查看虚拟机状态</h3><p>首先需要启用资源计量。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enable-VMResourceMetering -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
-<p>查看名为debian的虚拟机的CPU使用率，RAM使用率，磁盘容量和网络流量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Measure-VM -VMName &#x27;debian&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>下方的还没有测试 </p>
-<hr>
-<h3 id="虚拟机配置管理"><a href="#虚拟机配置管理" class="headerlink" title="虚拟机配置管理"></a>虚拟机配置管理</h3><ol>
-<li><p><strong>修改虚拟机配置</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 修改虚拟机内存（动态内存）</span><br><span class="line">Set-VMMemory -VMName &quot;VMName&quot; -DynamicMemoryEnabled $true -MinimumBytes 512MB -MaximumBytes 4GB -StartupBytes 2GB</span><br><span class="line"></span><br><span class="line"># 修改虚拟机处理器数量</span><br><span class="line">Set-VMProcessor -VMName &quot;VMName&quot; -Count 4</span><br><span class="line"></span><br><span class="line"># 修改虚拟机启动顺序（仅适用于第2代虚拟机）</span><br><span class="line">Set-VMFirmware -VMName &quot;VMName&quot; -BootOrder @(&quot;HardDiskDrive&quot;, &quot;NetworkAdapter&quot;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>添加或移除硬件</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 添加虚拟硬盘</span><br><span class="line">Add-VMHardDiskDrive -VMName &quot;VMName&quot; -Path &quot;D:\VHDs\disk2.vhdx&quot;</span><br><span class="line"></span><br><span class="line"># 添加网络适配器</span><br><span class="line">Add-VMNetworkAdapter -VMName &quot;VMName&quot; -SwitchName &quot;External Switch&quot;</span><br><span class="line"></span><br><span class="line"># 移除硬件（例如移除第2个硬盘）</span><br><span class="line">Remove-VMHardDiskDrive -VMName &quot;VMName&quot; -ControllerLocation 1</span><br></pre></td></tr></table></figure>
-
-
-
-
-</li>
-<li><pre><code># 查看所有虚拟交换机
-Get-VMSwitch
-
-# 创建外部虚拟交换机
-New-VMSwitch -Name &quot;External Switch&quot; -NetAdapterName &quot;Ethernet&quot; -AllowManagementOS $true
-
-# 创建内部或专用交换机
-New-VMSwitch -Name &quot;Internal Switch&quot; -SwitchType Internal
-
-# 删除虚拟交换机
-Remove-VMSwitch -Name &quot;Internal Switch&quot; -Force
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 虚拟硬盘管理</span><br><span class="line"></span><br><span class="line">1. **创建和管理虚拟硬盘**</span><br></pre></td></tr></table></figure>
-# 创建新的动态扩展虚拟硬盘
-New-VHD -Path &quot;C:\VHDs\new_disk.vhdx&quot; -SizeBytes 50GB -Dynamic
-
-# 挂载虚拟硬盘到主机（便于修改内容）
-Mount-VHD -Path &quot;C:\VHDs\disk.vhdx&quot;
-
-# 卸载虚拟硬盘
-Dismount-VHD -Path &quot;C:\VHDs\disk.vhdx&quot;
-
-# 压缩虚拟硬盘（回收未使用空间）
-Optimize-VHD -Path &quot;C:\VHDs\disk.vhdx&quot; -Mode Full
-</code></pre>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 高级监控与性能</span><br><span class="line"></span><br><span class="line">1. **实时监控**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）"><a href="#查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）" class="headerlink" title="查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）"></a>查看虚拟机CPU、内存、磁盘、网络实时使用情况（持续刷新）</h1><p>   Get-VM -Name “VMName” | Get-VMResourceMetering | Format-List</p>
-<h1 id="启用资源计量（如未启用）"><a href="#启用资源计量（如未启用）" class="headerlink" title="启用资源计量（如未启用）"></a>启用资源计量（如未启用）</h1><p>   Enable-VMResourceMetering -VMName “VMName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **导出性能数据**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h1 id="导出虚拟机性能数据到CSV"><a href="#导出虚拟机性能数据到CSV" class="headerlink" title="导出虚拟机性能数据到CSV"></a>导出虚拟机性能数据到CSV</h1><p>   Measure-VM -Name “VMName” | Export-Csv -Path “C:\perf.csv” -NoTypeInformation<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 导入和导出虚拟机</span><br><span class="line"></span><br><span class="line">1. **导出虚拟机**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Export-VM -Name “VMName” -Path “D:\Exports&quot;<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **导入虚拟机**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Import-VM -Path “D:\Exports\VMName\Virtual Machines\VMID.xml” -Copy -GenerateNewId<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 虚拟机复制（Replication）</span><br><span class="line"></span><br><span class="line">1. **配置复制**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h1 id="启用虚拟机复制"><a href="#启用虚拟机复制" class="headerlink" title="启用虚拟机复制"></a>启用虚拟机复制</h1><p>   Enable-VMReplication -VMName “VMName” -ReplicaServerName “ReplicaHost” -ReplicaServerPort 80 -AuthenticationType Kerberos -CompressionEnabled $true<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **启动复制**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Start-VMInitialReplication -VMName “VMName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 安全检查点（快照）管理</span><br><span class="line"></span><br><span class="line">1. **还原到检查点**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Restore-VMSnapshot -Name “SnapshotName” -VMName “VMName” -Confirm:$false<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **重命名检查点**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Rename-VMSnapshot -VMName “VMName” -Name “OldName” -NewName “NewName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 其他实用命令</span><br><span class="line"></span><br><span class="line">1. **查看Hyper-V主机信息**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Get-VMHost<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **查看虚拟机集成服务状态**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Get-VMIntegrationService -VMName “VMName”<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. **启用或禁用集成服务**</span><br><span class="line"></span><br><span class="line">   powershell</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>   Enable-VMIntegrationService -VMName “VMName” -Name “Time Synchronization”<br>   Disable-VMIntegrationService -VMName “VMName” -Name “Time Synchronization”</p>
-<pre><code>
-
-
-
-
-
-
-
-
-
-
-
-
-参考链接
-[微软官网文档](https://learn.microsoft.com/zh-cn/powershell/module/hyper-v/?view=windowsserver2019-ps) 可以左上角根据自己的系统调整
-</code></pre>
-
+          <p>方便用脚本&远程控制</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1193,6 +934,13 @@ Optimize-VHD -Path &quot;C:\VHDs\disk.vhdx&quot; -Mode Full
 
       <time title="创建时间：2025-08-16 11:44:35" itemprop="dateCreated datePublished" datetime="2025-08-16T11:44:35+08:00">2025-08-16</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-24 22:24:48" itemprop="dateModified" datetime="2025-09-24T22:24:48+08:00">2025-09-24</time>
+    </span>
 
   
     <span id="/2025/08/16/windows%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="windows命令行常用指令" title="阅读次数">
@@ -1211,7 +959,15 @@ Optimize-VHD -Path &quot;C:\VHDs\disk.vhdx&quot; -Mode Full
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <p>还没写好。。。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/16/windows%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1265,9 +1021,15 @@ Optimize-VHD -Path &quot;C:\VHDs\disk.vhdx&quot; -Mode Full
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-08-15 22:40:59 / 修改时间：23:01:03" itemprop="dateCreated datePublished" datetime="2025-08-15T22:40:59+08:00">2025-08-15</time>
+      <time title="创建时间：2025-08-15 22:40:59" itemprop="dateCreated datePublished" datetime="2025-08-15T22:40:59+08:00">2025-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-24 22:24:20" itemprop="dateModified" datetime="2025-09-24T22:24:20+08:00">2025-09-24</time>
     </span>
 
   
@@ -1287,14 +1049,15 @@ Optimize-VHD -Path &quot;C:\VHDs\disk.vhdx&quot; -Mode Full
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在windows系统中，剪贴板中保存的是图片数据（类似图片的地址），而不是文件。</p>
-<p>使用这个小软件：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/huiyadanli/PasteEx">Paste As File 把剪贴板的内容直接粘贴为文件</a></p>
-<p>下载，解压并运行，会在鼠标右键窗口栏处添加一个功能</p>
-<p>文档：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/huiyadanli/PasteEx/wiki">Home &#x2F;PasteEx Wiki</a></p>
-<p>win快捷操作<br>PrtSc(在键盘右上角)&#x3D;win+shift+s &#x3D;选择区域截屏。<br>win+PrtSc&#x3D;全屏截屏。</p>
-
+          <p>有点用</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/15/Windows%E8%87%AA%E5%8A%A8%E7%B2%98%E8%B4%B4%E6%96%87%E4%BB%B6/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
