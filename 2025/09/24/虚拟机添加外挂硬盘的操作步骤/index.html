@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.cwx2006.","root":"/","images":"/images","scheme":"Muse","darkmode":"ture","version":"8.24.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="С���ɡ���Դ���ɵĽ̳�֮һ~~~">
+    <meta name="description" content="小熊派—开源鸿蒙的教程之一~~~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="������������Ӳ��">
+<meta property="og:title" content="虚拟机添加外挂硬盘">
 <meta property="og:url" content="https://www.cwx2006./2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="С���ɡ���Դ���ɵĽ̳�֮һ~~~">
+<meta property="og:description" content="小熊派—开源鸿蒙的教程之一~~~">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-24T14:28:44.000Z">
-<meta property="article:modified_time" content="2025-09-25T02:29:45.313Z">
+<meta property="article:modified_time" content="2025-09-25T02:47:39.502Z">
 <meta property="article:author" content="cwx">
 <meta property="article:tag" content="个人博客, Hexo, 技术, 编程">
 <meta name="twitter:card" content="summary">
@@ -37,10 +37,10 @@
 <link rel="canonical" href="https://www.cwx2006./2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.cwx2006./2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/","path":"2025/09/24/虚拟机添加外挂硬盘的操作步骤/","title":"������������Ӳ��"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.cwx2006./2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/","path":"2025/09/24/虚拟机添加外挂硬盘的操作步骤/","title":"虚拟机添加外挂硬盘"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>������������Ӳ�� | 我的博客</title>
+<title>虚拟机添加外挂硬盘 | 我的博客</title>
   
 
 
@@ -133,7 +133,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D3%B2%EF%BF%BD%CC%B5%C4%B2%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.</span> <span class="nav-text">������������Ӳ�̵Ĳ�������</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D3%B2%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.1.</span> <span class="nav-text">1.��������Ӳ��</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%EF%BF%BD%EF%BF%BD%D1%AF%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D3%B2%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.2.</span> <span class="nav-text">2.��ѯ����Ӳ��</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D3%B2%EF%BF%BD%CC%B7%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.3.</span> <span class="nav-text">3.����Ӳ�̷���</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%EF%BF%BD%EF%BF%BD%CA%BD%EF%BF%BD%EF%BF%BD%D3%B2%EF%BF%BD%CC%B7%EF%BF%BD%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.4.</span> <span class="nav-text">4.��ʽ��Ӳ�̷���</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%EF%BF%BD%D4%B6%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D3%B2%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.5.</span> <span class="nav-text">5.�Զ���������Ӳ��</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%EF%BF%BD%DE%B8J%EF%BF%BD%EF%BF%BD%EF%BF%BDE%EF%BF%BD%EF%BF%BD"><span class="nav-number">1.6.</span> <span class="nav-text">6.�޸Ĵ���Ȩ��</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">虚拟机添加外挂硬盘的操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%A1%AC%E7%9B%98"><span class="nav-number">1.1.</span> <span class="nav-text">1.创建虚拟硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9F%A5%E8%AF%A2%E8%99%9A%E6%8B%9F%E7%A1%AC%E7%9B%98"><span class="nav-number">1.2.</span> <span class="nav-text">2.查询虚拟硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-number">1.3.</span> <span class="nav-text">3.创建硬盘分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-number">1.4.</span> <span class="nav-text">4.格式化硬盘分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E8%99%9A%E6%8B%9F%E7%A1%AC%E7%9B%98"><span class="nav-number">1.5.</span> <span class="nav-text">5.自动挂载虚拟硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%BF%AE%E6%94%B9%E7%A3%81%E7%9B%98%E6%9D%83%E9%99%90"><span class="nav-number">1.6.</span> <span class="nav-text">6.修改磁盘权限</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -198,12 +198,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="������������Ӳ�� | 我的博客">
-      <meta itemprop="description" content="С���ɡ���Դ���ɵĽ̳�֮һ~~~">
+      <meta itemprop="name" content="虚拟机添加外挂硬盘 | 我的博客">
+      <meta itemprop="description" content="小熊派—开源鸿蒙的教程之一~~~">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ������������Ӳ��
+          虚拟机添加外挂硬盘
         </h1>
 
         <div class="post-meta-container">
@@ -221,11 +221,11 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-09-25 10:29:45" itemprop="dateModified" datetime="2025-09-25T10:29:45+08:00">2025-09-25</time>
+      <time title="修改时间：2025-09-25 10:47:39" itemprop="dateModified" datetime="2025-09-25T10:47:39+08:00">2025-09-25</time>
     </span>
 
   
-    <span id="/2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="������������Ӳ��" title="阅读次数">
+    <span id="/2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="虚拟机添加外挂硬盘" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -241,53 +241,53 @@
     </span>
 </div>
 
-            <div class="post-description">С���ɡ���Դ���ɵĽ̳�֮һ~~~</div>
+            <div class="post-description">小熊派—开源鸿蒙的教程之一~~~</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>vim������nano���档</p>
-<h1 id="������������Ӳ�̵Ĳ�������"><a href="#������������Ӳ�̵Ĳ�������" class="headerlink" title="������������Ӳ�̵Ĳ�������"></a>������������Ӳ�̵Ĳ�������</h1><p>ʹ���������Ӳ�̵ĺô������԰Ѵ������ݵ����������ҵ�����Ӳ���У���������������룬��һ�������Ϊ���������ˣ�����������Ҳ��ʧ��Ҳ�������ݵİ��ˡ������ȡ�</p>
-<p>�������������ҵ��������Ƴ���ֱ�ӷ����������������ң��������������̣�����Ҫ��ʱ��������忽���������ݡ�</p>
-<p>������Ϊ����������������Ӳ�̵Ĳ������裬���в����׵ĵط�����ο����ϸ���ϸ�Ĳ����ĵ���</p>
-<h2 id="1-��������Ӳ��"><a href="#1-��������Ӳ��" class="headerlink" title="1.��������Ӳ��"></a>1.��������Ӳ��</h2><p>������ػ�״̬��Ϊ���������һ��SCSI��60GӲ�̣���һ�������зǳ���ϸ�Ĳ���˵����<br>��<strong>ע��</strong>������OpenHarmonyϵͳ���ݽ���ϵͳ������ռ�Ŀռ��Ѿ��ǳ���<strong>��������������Ӳ�̴���200G</strong>����������60GΪ�����в�����ʾ����</p>
-<h2 id="2-��ѯ����Ӳ��"><a href="#2-��ѯ����Ӳ��" class="headerlink" title="2.��ѯ����Ӳ��"></a>2.��ѯ����Ӳ��</h2><p>����������󣬽����������ն�ִ��</p>
+    <div class="post-body" itemprop="articleBody"><p>vim可以用nano代替。</p>
+<h1 id="虚拟机添加外挂硬盘的操作步骤"><a href="#虚拟机添加外挂硬盘的操作步骤" class="headerlink" title="虚拟机添加外挂硬盘的操作步骤"></a>虚拟机添加外挂硬盘的操作步骤</h1><p>使用外挂虚拟硬盘的好处，可以把代码数据单独存放在外挂的虚拟硬盘中，与虚拟机本身分离，万一虚拟机因为误操作搞挂了，不至于数据也丢失，也方便数据的搬运、分享等。</p>
+<p>本虚拟机，把外挂的数据盘移除，直接分享虚拟机本身给大家，而独立的数据盘，在需要的时候可以整体拷贝以作备份。</p>
+<p>以下是为虚拟机添加外挂虚拟硬盘的操作步骤，如有不明白的地方，请参考网上更详细的操作文档。</p>
+<h2 id="1-创建虚拟硬盘"><a href="#1-创建虚拟硬盘" class="headerlink" title="1.创建虚拟硬盘"></a>1.创建虚拟硬盘</h2><p>虚拟机关机状态，为虚拟机新增一个SCSI的60G硬盘，这一步网上有非常详细的操作说明。<br>【<strong>注意</strong>：随着OpenHarmony系统的演进，系统代码所占的空间已经非常大，<strong>建议新增的虚拟硬盘大于200G</strong>，这里仍以60G为例进行操作演示。】</p>
+<h2 id="2-查询虚拟硬盘"><a href="#2-查询虚拟硬盘" class="headerlink" title="2.查询虚拟硬盘"></a>2.查询虚拟硬盘</h2><p>虚拟机开机后，进入命令行终端执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo fdisk -l</span><br></pre></td></tr></table></figure>
 
-<p>Ӧ������ʾ��</p>
+<p>应会有显示：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Device     Boot   Start      End  Sectors  Size Id Type</span><br><span class="line">/dev/sda1  *       2048  1050623  1048576  512M  b W95 FAT32</span><br><span class="line">/dev/sda2       1052670 62912511 61859842 29.5G  5 Extended</span><br><span class="line">/dev/sda5       1052672 62912511 61859840 29.5G 83 Linux</span><br></pre></td></tr></table></figure>
 
-<p>���sda��30G��ϵͳ�̣���װUbuntuϵͳ��</p>
-<p>Ȼ�����������Ϣ��</p>
+<p>这个sda是30G的系统盘，安装Ubuntu系统。</p>
+<p>然后会有如下信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Disk /dev/sdc: 60 GiB, 64424509440 bytes, 125829120 sectors</span><br><span class="line">Disk model: VMware Virtual S</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br></pre></td></tr></table></figure>
 
-<p>���ǵ�һ�����������ӵ�60G����Ӳ�̣�ע��������ʾ���� <strong>&#x2F;dev&#x2F;sdc</strong>������ʵ��ʹ���п�����**&#x2F;dev&#x2F;sdX**������Ĳ����У���Ҫ�������ʵ����������޸ġ�</p>
-<h2 id="3-����Ӳ�̷���"><a href="#3-����Ӳ�̷���" class="headerlink" title="3.����Ӳ�̷���"></a>3.����Ӳ�̷���</h2><p>��������ִ�У�</p>
+<p>这是第一步创建和添加的60G虚拟硬盘，注意这里显示的是 <strong>&#x2F;dev&#x2F;sdc</strong>，在你实际使用中可能是**&#x2F;dev&#x2F;sdX**，后面的步骤中，需要根据你的实际情况进行修改。</p>
+<h2 id="3-创建硬盘分区"><a href="#3-创建硬盘分区" class="headerlink" title="3.创建硬盘分区"></a>3.创建硬盘分区</h2><p>命令行下执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo fdisk /dev/sdc</span><br></pre></td></tr></table></figure>
 
-<p>  ����m����ʾ������Ϣ<br>  ������ n������һ���µķ���<br>  ������ p������������<br>  �ڷ������������֣�����Ĭ��ֵ��������������̵���һ���������ɡ�<br>  ������ p����ӡ��������ȷ�������<br>  ������ w�����������<br>  ��ִ�� 	$sudo fdisk -l<br>  ���ɿ���������Ϣ��</p>
+<p>  输入m，显示帮助信息<br>  再输入 n，添加一个新的分区<br>  再输入 p，添加主分区<br>  在分区表设置数字，都按默认值，把整个虚拟磁盘当做一个分区即可。<br>  再输入 p，打印分区表，确认无误后，<br>  再输入 w，保存分区表<br>  再执行 	$sudo fdisk -l<br>  即可看到分区信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  Device     Boot Start       End   Sectors Size Id Type</span><br><span class="line">/dev/sdc1        2048 125829119 125827072  60G 83 Linux</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-��ʽ��Ӳ�̷���"><a href="#4-��ʽ��Ӳ�̷���" class="headerlink" title="4.��ʽ��Ӳ�̷���"></a>4.��ʽ��Ӳ�̷���</h2><p>ִ���������</p>
+<h2 id="4-格式化硬盘分区"><a href="#4-格式化硬盘分区" class="headerlink" title="4.格式化硬盘分区"></a>4.格式化硬盘分区</h2><p>执行如下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo mkfs -t ext4 /dev/sdc1</span><br></pre></td></tr></table></figure>
 
-<p>���½�������ʽ����ext4��ʽ</p>
-<h2 id="5-�Զ���������Ӳ��"><a href="#5-�Զ���������Ӳ��" class="headerlink" title="5.�Զ���������Ӳ��"></a>5.�Զ���������Ӳ��</h2><p>ִ���������</p>
+<p>将新建分区格式化成ext4格式</p>
+<h2 id="5-自动挂载虚拟硬盘"><a href="#5-自动挂载虚拟硬盘" class="headerlink" title="5.自动挂载虚拟硬盘"></a>5.自动挂载虚拟硬盘</h2><p>执行如下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
 
-<p>�༭���ļ�������</p>
+<p>编辑该文件，增加</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdc1      /home/ohos/Disk60G   ext4  defaults   0   1</span><br></pre></td></tr></table></figure>
 
-<p>�������µ�����Ӳ�̾Ϳ����Զ����ص�Disk60GĿ¼�¡�</p>
-<h2 id="6-�޸J���E��"><a href="#6-�޸J���E��" class="headerlink" title="6.�޸Ĵ���Ȩ��"></a>6.�޸Ĵ���Ȩ��</h2><p>ִ���������</p>
+<p>重启后新的虚拟硬盘就可以自动挂载到Disk60G目录下。</p>
+<h2 id="6-修改磁盘权限"><a href="#6-修改磁盘权限" class="headerlink" title="6.修改磁盘权限"></a>6.修改磁盘权限</h2><p>执行如下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x  3 root root  4096 Dec  2 21:34 Disk60G/</span><br></pre></td></tr></table></figure>
 
-<p>�����ߺ�Ⱥ�鶼��root�ģ���Ҫ�ĳɵ�ǰ�û� ohos��������ж�д�ô��̵�Ȩ�����⡣</p>
+<p>所有者和群组都是root的，需要改成当前用户 ohos，否则会有读写该磁盘的权限问题。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$sudo chown -R ohos:ohos ./Disk60G</span><br><span class="line">$sudo chmod -R 775 ./Disk60G</span><br></pre></td></tr></table></figure>
 
-<p>  �����Ϳ����� Disk60G Ŀ¼�����̣�������OH�������ʹ���ˡ�</p>
+<p>  这样就可以在 Disk60G 目录（磁盘）中下载OH代码进行使用了。</p>
 
     </div>
 
@@ -323,6 +323,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/09/25/new/" rel="next" title="招新">
+                  招新 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
