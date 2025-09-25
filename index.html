@@ -143,7 +143,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -181,7 +181,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4-1/">
+    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,7 +199,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4-1/" class="post-title-link" itemprop="url">虚拟机添加外挂硬盘的操作步骤</a>
+          <a href="/2025/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">虚拟机添加外挂硬盘的操作步骤</a>
         </h2>
 
         <div class="post-meta-container">
@@ -209,12 +209,13 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2025-09-25 10:47:21" itemprop="dateCreated datePublished" datetime="2025-09-25T10:47:21+08:00">2025-09-25</time>
+      <time title="创建时间：2025-09-25 10:47:21 / 修改时间：10:49:55" itemprop="dateCreated datePublished" datetime="2025-09-25T10:47:21+08:00">2025-09-25</time>
     </span>
 
   
-    <span id="/2025/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4-1/" class="post-meta-item leancloud_visitors" data-flag-title="虚拟机添加外挂硬盘的操作步骤" title="阅读次数">
+    <span id="/2025/09/25/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="虚拟机添加外挂硬盘的操作步骤" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -230,7 +231,47 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <p>vim可以用nano代替。</p>
+<h1 id="虚拟机添加外挂硬盘的操作步骤"><a href="#虚拟机添加外挂硬盘的操作步骤" class="headerlink" title="虚拟机添加外挂硬盘的操作步骤"></a>虚拟机添加外挂硬盘的操作步骤</h1><p>使用外挂虚拟硬盘的好处，可以把代码数据单独存放在外挂的虚拟硬盘中，与虚拟机本身分离，万一虚拟机因为误操作搞挂了，不至于数据也丢失，也方便数据的搬运、分享等。</p>
+<p>本虚拟机，把外挂的数据盘移除，直接分享虚拟机本身给大家，而独立的数据盘，在需要的时候可以整体拷贝以作备份。</p>
+<p>以下是为虚拟机添加外挂虚拟硬盘的操作步骤，如有不明白的地方，请参考网上更详细的操作文档。</p>
+<h2 id="1-创建虚拟硬盘"><a href="#1-创建虚拟硬盘" class="headerlink" title="1.创建虚拟硬盘"></a>1.创建虚拟硬盘</h2><p>虚拟机关机状态，为虚拟机新增一个SCSI的60G硬盘，这一步网上有非常详细的操作说明。<br>【<strong>注意</strong>：随着OpenHarmony系统的演进，系统代码所占的空间已经非常大，<strong>建议新增的虚拟硬盘大于200G</strong>，这里仍以60G为例进行操作演示。】</p>
+<h2 id="2-查询虚拟硬盘"><a href="#2-查询虚拟硬盘" class="headerlink" title="2.查询虚拟硬盘"></a>2.查询虚拟硬盘</h2><p>虚拟机开机后，进入命令行终端执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>应会有显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Device     Boot   Start      End  Sectors  Size Id Type</span><br><span class="line">/dev/sda1  *       2048  1050623  1048576  512M  b W95 FAT32</span><br><span class="line">/dev/sda2       1052670 62912511 61859842 29.5G  5 Extended</span><br><span class="line">/dev/sda5       1052672 62912511 61859840 29.5G 83 Linux</span><br></pre></td></tr></table></figure>
+
+<p>这个sda是30G的系统盘，安装Ubuntu系统。</p>
+<p>然后会有如下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Disk /dev/sdc: 60 GiB, 64424509440 bytes, 125829120 sectors</span><br><span class="line">Disk model: VMware Virtual S</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br></pre></td></tr></table></figure>
+
+<p>这是第一步创建和添加的60G虚拟硬盘，注意这里显示的是 <strong>&#x2F;dev&#x2F;sdc</strong>，在你实际使用中可能是**&#x2F;dev&#x2F;sdX**，后面的步骤中，需要根据你的实际情况进行修改。</p>
+<h2 id="3-创建硬盘分区"><a href="#3-创建硬盘分区" class="headerlink" title="3.创建硬盘分区"></a>3.创建硬盘分区</h2><p>命令行下执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk /dev/sdc</span><br></pre></td></tr></table></figure>
+
+<p>  输入m，显示帮助信息<br>  再输入 n，添加一个新的分区<br>  再输入 p，添加主分区<br>  在分区表设置数字，都按默认值，把整个虚拟磁盘当做一个分区即可。<br>  再输入 p，打印分区表，确认无误后，<br>  再输入 w，保存分区表<br>  再执行 	$sudo fdisk -l<br>  即可看到分区信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  Device     Boot Start       End   Sectors Size Id Type</span><br><span class="line">/dev/sdc1        2048 125829119 125827072  60G 83 Linux</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-格式化硬盘分区"><a href="#4-格式化硬盘分区" class="headerlink" title="4.格式化硬盘分区"></a>4.格式化硬盘分区</h2><p>执行如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs -t ext4 /dev/sdc1</span><br></pre></td></tr></table></figure>
+
+<p>将新建分区格式化成ext4格式</p>
+<h2 id="5-自动挂载虚拟硬盘"><a href="#5-自动挂载虚拟硬盘" class="headerlink" title="5.自动挂载虚拟硬盘"></a>5.自动挂载虚拟硬盘</h2><p>执行如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>编辑该文件，增加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdc1      /home/ohos/Disk60G   ext4  defaults   0   1</span><br></pre></td></tr></table></figure>
+
+<p>重启后新的虚拟硬盘就可以自动挂载到Disk60G目录下。</p>
+<h2 id="6-修改磁盘权限"><a href="#6-修改磁盘权限" class="headerlink" title="6.修改磁盘权限"></a>6.修改磁盘权限</h2><p>执行如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x  3 root root  4096 Dec  2 21:34 Disk60G/</span><br></pre></td></tr></table></figure>
+
+<p>所有者和群组都是root的，需要改成当前用户 ohos，否则会有读写该磁盘的权限问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R ohos:ohos ./Disk60G</span><br><span class="line">sudo chmod -R 775 ./Disk60G</span><br></pre></td></tr></table></figure>
+
+<p>  这样就可以在 Disk60G 目录（磁盘）中下载OH代码进行使用了。</p>
+
       
     </div>
 
@@ -307,96 +348,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="招新"><a href="#招新" class="headerlink" title="招新"></a>招新</h1><div class="pdf-container" data-target="http://www.cwx2006.ltd/file/xz.pdf" data-height="500px"></div>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cwx">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的博客">
-      <meta itemprop="description" content="没事写写东西">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 我的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">虚拟机添加外挂硬盘</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-09-24 22:28:44" itemprop="dateCreated datePublished" datetime="2025-09-24T22:28:44+08:00">2025-09-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-09-25 10:47:39" itemprop="dateModified" datetime="2025-09-25T10:47:39+08:00">2025-09-25</time>
-    </span>
-
-  
-    <span id="/2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="虚拟机添加外挂硬盘" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>小熊派—开源鸿蒙的教程之一~~~</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/09/24/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B7%BB%E5%8A%A0%E5%A4%96%E6%8C%82%E7%A1%AC%E7%9B%98%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1010,6 +961,96 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/08/23/%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F%E7%AB%99/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.cwx2006./2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cwx">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的博客">
+      <meta itemprop="description" content="没事写写东西">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="post-title-link" itemprop="url">Hyper-v命令行</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-08-19 19:18:57" itemprop="dateCreated datePublished" datetime="2025-08-19T19:18:57+08:00">2025-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-09-24 22:26:29" itemprop="dateModified" datetime="2025-09-24T22:26:29+08:00">2025-09-24</time>
+    </span>
+
+  
+    <span id="/2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="post-meta-item leancloud_visitors" data-flag-title="Hyper-v命令行" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>方便用脚本&远程控制</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/08/19/Hyper-v%E5%91%BD%E4%BB%A4%E8%A1%8C/">
                 阅读全文 &raquo;
               </a>
             </div>
