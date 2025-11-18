@@ -376,7 +376,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/18/sheepit/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/18/sheepit/" class="post-title-link" itemprop="url">Windows系统自动粘贴文件</a>
         </h2>
 
         <div class="post-meta-container">
@@ -388,11 +388,11 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-11-18 20:12:36 / 修改时间：20:59:50" itemprop="dateCreated datePublished" datetime="2025-11-18T20:12:36+08:00">2025-11-18</time>
+      <time title="创建时间：2025-11-18 20:42:59 / 修改时间：21:16:20" itemprop="dateCreated datePublished" datetime="2025-11-18T20:42:59+08:00">2025-11-18</time>
     </span>
 
   
-    <span id="/2025/11/18/sheepit/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+    <span id="/2025/11/18/sheepit/" class="post-meta-item leancloud_visitors" data-flag-title="Windows系统自动粘贴文件" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -408,79 +408,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>稍微的英语翻译一下</p>
-<p><img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/2c0ead87fc1542a2895271725bbfa3e7.png~tplv-a9rns2rl98-24-95-exif:960:960.png?rcl=20251118200612B2277B5E94BDB701C5C2&rk3s=8e244e95&rrcfp=1db6ccd3&x-expires=1764072372&x-signature=hF3AgL8RMNNDgB//U+N7cDVcrPw=" alt="img"></p>
-<h2 id="设置界面："><a href="#设置界面：" class="headerlink" title="设置界面："></a>设置界面：</h2><h3 id="一、Authentication（认证模块）"><a href="#一、Authentication（认证模块）" class="headerlink" title="一、Authentication（认证模块）"></a>一、Authentication（认证模块）</h3><ul>
-<li><strong>Username（用户名）</strong>：用于登录 SheepIt 账号，标识你的渲染节点身份。</li>
-<li><strong>Password（密码）</strong>：对应 SheepIt 账号的密码，用于身份验证。</li>
-</ul>
-<h3 id="二、Theme（主题模块）"><a href="#二、Theme（主题模块）" class="headerlink" title="二、Theme（主题模块）"></a>二、Theme（主题模块）</h3><ul>
-<li><strong>Light&#x2F;Dark（亮色 &#x2F; 暗色主题）</strong>：可选择界面显示风格，亮色主题以浅色背景为主，暗色主题则采用深色背景，提升不同使用场景下的视觉舒适度。</li>
-</ul>
-<h3 id="三、Cache（缓存模块）"><a href="#三、Cache（缓存模块）" class="headerlink" title="三、Cache（缓存模块）"></a>三、Cache（缓存模块）</h3><ul>
-<li><strong>Working directory（工作目录）</strong>：设置 SheepIt 存储临时文件、渲染数据的本地路径，需确保该目录有足够的磁盘空间（建议预留数 GB 以上），多个客户端实例需配置不同工作目录。</li>
-</ul>
-<h3 id="四、Compute-devices（计算设备模块）"><a href="#四、Compute-devices（计算设备模块）" class="headerlink" title="四、Compute devices（计算设备模块）"></a>四、Compute devices（计算设备模块）</h3><ul>
-<li><p>CPU&#x2F;GPU 勾选框</p>
-<p>：选择用于渲染的硬件设备。</p>
-<ul>
-<li><strong>CPU</strong>：使用中央处理器进行渲染，适合无独立显卡或需要利用闲置 CPU 资源的场景。</li>
-<li><strong>GPU（如示例中的 NVIDIA P104-100）</strong>：使用图形处理器加速渲染，效率通常远高于 CPU（需确保显卡驱动已正确安装，Linux 系统需安装 NVIDIA 专有驱动）。</li>
-</ul>
-</li>
-<li><p><strong>CPU cores（CPU 核心滑块）</strong>：调整用于渲染的 CPU 核心数量，可根据系统其他程序的资源需求灵活分配，避免因渲染占用过多核心导致系统卡顿。</p>
-</li>
-<li><p><strong>Memory（内存滑块）</strong>：设置 SheepIt 可使用的最大内存容量，需根据项目需求和系统总内存合理配置，防止内存不足导致渲染失败。</p>
-</li>
-<li><p><strong>Priority（优先级滑块）</strong>：调节 SheepIt 进程的系统优先级，“Low” 表示低优先级，不影响其他程序运行；“High” 表示高优先级，让渲染任务获得更多系统资源。</p>
-</li>
-</ul>
-<h3 id="五、Advanced-options（高级选项模块）"><a href="#五、Advanced-options（高级选项模块）" class="headerlink" title="五、Advanced options（高级选项模块）"></a>五、Advanced options（高级选项模块）</h3><ul>
-<li><strong>Minimize to SysTray（最小化到系统托盘）</strong>：启用后，客户端最小化时会隐藏到系统托盘区域，不占用任务栏空间。</li>
-<li><strong>Block Eevee projects（阻止 Eevee 项目）</strong>：若你的硬件对 Blender 的 Eevee 渲染引擎支持不佳，可勾选此选项，避免接收该类型渲染任务。</li>
-<li><strong>Disable large downloads（禁用大文件下载）</strong>：防止因接收大尺寸项目导致带宽或磁盘空间不足。</li>
-<li><strong>Proxy（代理）</strong>：若网络需要通过代理访问，可在此配置代理服务器信息。</li>
-<li><strong>Computer name（计算机名称）</strong>：自定义设备在 SheepIt 农场中的识别名称，便于管理多设备节点。</li>
-<li><strong>Incompatible process（不兼容进程）</strong>：可设置与 SheepIt 冲突的进程名称，客户端会监测并避免在这些进程运行时执行渲染。</li>
-<li><strong>Max time per frame (in minute)（每帧最大渲染时间）</strong>：设置单帧渲染的最长时间限制，超过该时间则终止渲染，防止某一帧因异常占用过多资源。</li>
-<li><strong>Write settings to file（写入设置到文件）</strong>：启用后，配置会保存到本地文件，下次启动时自动加载。</li>
-<li><strong>Auto sign in（自动登录）</strong>：勾选后，客户端启动时会自动使用保存的账号密码登录。</li>
-</ul>
-<p><img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/cae89d15860d49a0bcb0eb52c4df828f.png~tplv-a9rns2rl98-24-95-exif:960:960.png?rcl=20251118200612769395F263D654380E71&rk3s=8e244e95&rrcfp=1db6ccd3&x-expires=1764072372&x-signature=fwiCrMCokeHzjsxjMj41uKo6cZI=" alt="img"></p>
-<h2 id="运行界面"><a href="#运行界面" class="headerlink" title="运行界面"></a>运行界面</h2><h3 id="一、Project（项目模块）"><a href="#一、Project（项目模块）" class="headerlink" title="一、Project（项目模块）"></a>一、Project（项目模块）</h3><ul>
-<li><strong>Status（状态）</strong>：渲染进度 14%  &#x2F; Downloading Project xx% 正在下载 Extracting Project(解压项目) Prepare Project（准备项目）</li>
-<li><strong>Name（项目名）</strong>：12xialouti  （别人的项目）</li>
-<li><strong>Rendering for（已渲染时长）</strong>：1min 29s</li>
-<li><strong>Remaining（剩余时长）</strong>：8min 1s</li>
-<li><strong>Compute method（计算方式）</strong>：GPU（使用图形处理器渲染）&#x2F; CPU（使用中央处理器渲染）</li>
-</ul>
-<h3 id="二、Global-stats（全局统计）"><a href="#二、Global-stats（全局统计）" class="headerlink" title="二、Global stats（全局统计）"></a>二、Global stats（全局统计）</h3><ul>
-<li><strong>Active projects（活跃项目）</strong>：48 个（当前农场中正在进行的渲染项目数量）</li>
-<li><strong>Machines connected（连接机器）</strong>：565 台（当前参与分布式渲染的设备总数）</li>
-<li><strong>Remaining frames（剩余帧数）</strong>：73,361 帧（所有活跃项目待渲染的总帧数）</li>
-<li><strong>User’s points（用户积分）</strong>：1,454 分（参与渲染获得的积分，可用于兑换渲染资源或体现贡献）</li>
-</ul>
-<h3 id="三、Session-infos（会话信息）（打开渲染农场后）"><a href="#三、Session-infos（会话信息）（打开渲染农场后）" class="headerlink" title="三、Session infos（会话信息）（打开渲染农场后）"></a>三、Session infos（会话信息）（打开渲染农场后）</h3><ul>
-<li><strong>Points earned（本次会话积分）</strong>：1,454 分</li>
-<li><strong>Rendered frames（渲染帧数）</strong>：2 帧</li>
-<li><strong>Queued uploads（上传队列）</strong>：0（暂无待上传的渲染结果）</li>
-<li><strong>Total Downloads（总下载量 &#x2F; 速度）</strong>：1GB @ 0.5MB&#x2F;s（本次会话下载的渲染数据总量及平均速度）</li>
-<li><strong>Total Uploads（总上传量 &#x2F; 速度）</strong>：6MB @ 0.6MB&#x2F;s（本次会话上传的渲染结果总量及平均速度）</li>
-<li><strong>Renderable projects（可渲染项目）</strong>：8 个（当前可参与的渲染任务数量）</li>
-<li><strong>Duration（会话时长）</strong>：36min 2s（本次启动客户端后的持续时间）</li>
-</ul>
-<h3 id="四、Last-uploaded-frame（最后上传帧）"><a href="#四、Last-uploaded-frame（最后上传帧）" class="headerlink" title="四、Last uploaded frame（最后上传帧）"></a>四、Last uploaded frame（最后上传帧）</h3><ul>
-<li><p><strong>Render time（渲染时间）</strong>：3min 55s（最近一帧的渲染耗时）</p>
-</li>
-<li><p>下面那张图：上一帧渲染出来的图片。</p>
-<p>下面的4个按钮：</p>
-<p>设置 pause停止获取新任务  Resume 恢复获取新任务</p>
-<p>停止这个任务  退出</p>
-</li>
-<li><p>一般情况最小化就可以缩小到托盘</p>
-</li>
-</ul>
-
+          <p>共享渲染农场</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/11/18/sheepit/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1098,7 +1034,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-11-18 21:11:54" itemprop="dateModified" datetime="2025-11-18T21:11:54+08:00">2025-11-18</time>
+      <time title="修改时间：2025-11-18 21:15:01" itemprop="dateModified" datetime="2025-11-18T21:15:01+08:00">2025-11-18</time>
     </span>
 
   
